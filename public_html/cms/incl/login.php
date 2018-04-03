@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#E91E63" id="theme_color">
-    <title>BamCMS | Login</title>
+    <meta name="theme-color" content="#2D2D2D" id="theme_color">
+    <title>Login | Fashion Online</title>
     <!-- Bootstrap stylesheet -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <!-- Custom styles -->
+    <!-- Custom styles (styled here to keep login screen not linked to anything) -->
     <style>
         body {
             display: flex;
