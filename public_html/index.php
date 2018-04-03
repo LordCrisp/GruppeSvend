@@ -5,6 +5,7 @@ require DOCROOT . "incl/header.php";
 ?>
 
 <main>Fisk</main>
+<div>Hej</div>
 
 
 <?php
