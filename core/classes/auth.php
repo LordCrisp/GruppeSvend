@@ -28,7 +28,7 @@ class auth
         $this->auth_user_name = filter_input(INPUT_POST, "login_user_name", FILTER_SANITIZE_STRING);
         $this->auth_password = filter_input(INPUT_POST, "login_password", FILTER_SANITIZE_STRING);
         $this->logout = filter_input(INPUT_GET, "logout", FILTER_SANITIZE_STRING);
-        $this->login_path = DOCROOT . "admin/incl/login.php";
+        $this->login_path = DOCROOT . "cms/incl/login.php";
         //Unset POST login variables
         unset($_POST['login_user_name']);
         unset($_POST['login_password']);

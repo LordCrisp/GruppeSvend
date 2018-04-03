@@ -6,9 +6,9 @@
 class db_conf extends db {
     function __construct() {
         $this->dbhost = "localhost";
-        $this->dbuser = "admin";
-        $this->dbpassword = "admin";
-        $this->dbname = "_template";
+        $this->dbuser = "root";
+        $this->dbpassword = "";
+        $this->dbname = "gruppesvend";
         $db = parent::connect();
     }
 }
