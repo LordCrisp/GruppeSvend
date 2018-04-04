@@ -23,7 +23,9 @@ class auth
         global $db;
         $this->db = $db;
         //Start Session
-        session_start();
+	    if (session_status() == PHP_SESSION_NONE) {
+		    session_start();
+	    }
         //Set User Name & Password from POST variables
         $this->auth_user_name = filter_input(INPUT_POST, "login_user_name", FILTER_SANITIZE_STRING);
         $this->auth_password = filter_input(INPUT_POST, "login_password", FILTER_SANITIZE_STRING);

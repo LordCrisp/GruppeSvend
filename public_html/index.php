@@ -4,7 +4,30 @@ require "incl/init.php";
 require DOCROOT . "/incl/header.php";
 ?>
 
-<main>Fisk</main>
+<main>
+    <section class="home__news--main">
+        <figure class="home__news--figure">
+            <picture class="home__news--picture">
+                <source srcset="assets/img/news1.jpg" media="(min-width: 650px)">
+                <source srcset="assets/img/news1.jpg" media="(min-width: 465px)">
+                <img src="assets/img/news1.jpg" alt="News picture">
+            </picture>
+        </figure>
+        <h2>LATEST ARRIVALS</h2>
+        <h5>Check our latest products here</h5>
+        <hr>
+        <?php 
+            $products = new products();
+            $latestProducts = $products->getLatestProducts();
+        ?>
+        <?php foreach ($latestProducts as $product) : ?>
+            <figure>
+                <img src='<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
+                <figcaption><?=$product['name']?></figcaption>
+            </figure>
+        <?php endforeach ; ?>
+    </section>
+</main>
 
 
 <?php
