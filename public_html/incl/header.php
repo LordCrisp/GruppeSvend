@@ -6,7 +6,7 @@
 	<meta name="theme-color" content="#2D2D2D" id="theme_color">
 	<title>Fashion Online | <?= $pageTitle ?> <?= $pageSection ?></title>
 	<!-- Custom stylesheet -->
-	<link rel="stylesheet" href="<?= DOCROOT ?>/assets/css/master.css">
+	<link rel="stylesheet" href="/assets/css/master.css">
 	<!-- Google fonts -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Favicon -->
