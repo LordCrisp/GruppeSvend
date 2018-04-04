@@ -16,16 +16,16 @@ require DOCROOT . "/incl/header.php";
         <h2>LATEST ARRIVALS</h2>
         <h5>Check our latest products here</h5>
         <hr>
-        <?php
-        /* - Latest Products - */
-        $sql = "SELECT * FROM product LIMIT 6";
-        foreach ($db->query($sql) as $key => $values){
-            echo "<figure>
-                <img src='$key[thumbnail]' alt='Picture of $key[name]'>
-                <figcaption>$key[name]</figcaption>
-            </figure>";
-        }
+        <?php 
+            $products = new products();
+            $latestProducts = $products->getLatestProducts();
         ?>
+        <?php foreach ($latestProducts as $product) : ?>
+            <figure>
+                <img src='<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
+                <figcaption><?=$product['name']?></figcaption>
+            </figure>
+        <?php endforeach ; ?>
     </section>
 </main>
 
