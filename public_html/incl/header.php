@@ -18,21 +18,29 @@
 <body>
 <!-- Header (start) -->
 <header class="header__container">
-	<div class="header__row">
+	<div class="header__row" id="secondMenu">
+		<button type="button" class="header__button" data-menu-close="secondMenu"><i class="material-icons">close</i></button>
 		<ul>
 			<li><a href="">find retailer</a></li>
 			<li><a href="">news</a></li>
 			<li><a href="">contact</a></li>
 		</ul>
-		<ul>
-			<li>
-				sign in
-			</li>
-		</ul>
+		<form class="header__signin-form" action="" method="post">
+			<p>sign in</p>
+			<div class="form__group">
+				<input type="text" name="username" placeholder="Username" />
+			</div>
+			<div class="form__group">
+				<input type="password" name="password" placeholder="Password" />
+			</div>
+			<button type="button">Go</button>
+		</form>
 	</div>
+	<button type="button" class="header__button" data-menu-open="secondMenu"><i class="material-icons">menu</i></button>
 	<figure class="header__logo-container">
 		<img src="" alt="fashion-online logo" />
 	</figure>
+	<button type="button" class="header__button" data-search-open="search"><i class="material-icons">search</i></button>
 	<div class="header__row--nav">
 		<ul>
 			<li><a href="">home</a></li>

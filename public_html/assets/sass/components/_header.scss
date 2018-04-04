@@ -1,13 +1,23 @@
 //// Header styles
 .header {
+  &__container {
+    position: relative;
+    @include flex(block, row, space-between, center, wrap);
+  }
   &__row {
     position: relative;
     @include flex(block, row, space-between, center, null);
     width: 100%;
     background-color: $dark;
+    z-index: 2;
     ul {
+      position: relative;
+      @include flex(block, row, start, center, wrap);
       li {
+        margin: 0 8px;
         a {
+          @include flex(block, row, center, center, null);
+          padding: 8px 0;
           color: rgba($light, 0.6);
           text-transform: capitalize;
         }
@@ -16,13 +26,126 @@
     &--nav {
       @extend .header__row;
       background-color: $light;
+      z-index: 1;
       ul {
         li {
           a {
+            color: $background;
             text-transform: uppercase;
           }
         }
       }
     }
+  }
+  &__button {
+    @include flex(block, row, center, center, null);
+    width: 48px;
+    height: 48px;
+    border: none;
+    background-color: transparent;
+    color: $accent;
+    i {
+      pointer-events: none;
+    }
+  }
+  &__signin-form {
+    position: relative;
+    @include flex(block, column, start, start, null);
+    width: 100%;
+    padding: 16px;
+    p {
+      padding-left: 6px;
+      color: $background;
+      font-weight: 500;
+    }
+    .form__group {
+      width: 100%;
+      margin: 8px 0;
+      input {
+        display: block;
+        width: 100%;
+        height: 38px;
+        padding: 0 12px;
+        border: none;
+        border-radius: 38px;
+        background-color: rgba($light, 0.2);
+        color: rgba($light, 0.8);
+        font-weight: 500;
+        &::placeholder {
+          color: rgba($light, 0.4);
+        }
+      }
+    }
+    button[type='button'] {
+      position: relative;
+      @include flex(block, row, center, center, null);
+      height: 36px;
+      padding: 0 16px;
+      border: none;
+      border-radius: 36px;
+      margin: 8px 0;
+      background-color: $accentLight;
+      color: $background;
+      font-weight: 500;
+    }
+  }
+}
+#secondMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include flex(block, column, space-between, start, null);
+  width: 80vw;
+  height: 100%;
+  transform: translateX(-100%);
+  .header__button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    border: none;
+    background-color: transparent;
+    color: $accent;
+  }
+  ul {
+    top: 48px;
+    @include flex(block, column, start, start, null);
+    width: 100%;
+    li {
+      width: 100%;
+      margin: 8px 0;
+      a {
+        @include flex(block, row, start, center, null);
+        width: 100%;
+        padding: 8px 16px;
+      }
+    }
+  }
+  &.active {
+    animation: menu-open 400ms curve() forwards;
+  }
+  &.closing {
+    animation: menu-close 400ms curve() forwards;
+  }
+}
+@keyframes menu-open {
+  from {
+    @include transform(translateX(-100%));
+    box-shadow: 100vw 0 0 rgba($dark, 0);
+  }
+  to {
+    @include transform(translateX(0%));
+    box-shadow: 20vw 0 0 rgba($dark, 0.4);
+  }
+}
+@keyframes menu-close {
+  from {
+    @include transform(translateX(0%));
+    box-shadow: 20vw 0 0 rgba($dark, 0.4);
+  }
+  to {
+    @include transform(translateX(-100%));
+    box-shadow: 100vw 0 0 rgba($dark, 0);
   }
 }
