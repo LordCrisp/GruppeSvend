@@ -1,0 +1,28 @@
+//// Header styles
+.header {
+  &__row {
+    position: relative;
+    @include flex(block, row, space-between, center, null);
+    width: 100%;
+    background-color: $dark;
+    ul {
+      li {
+        a {
+          color: rgba($light, 0.6);
+          text-transform: capitalize;
+        }
+      }
+    }
+    &--nav {
+      @extend .header__row;
+      background-color: $light;
+      ul {
+        li {
+          a {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 <?php
 require "incl/init.php";
 /* - Head, Header & Body (start) - */
-require DOCROOT . "incl/header.php";
+require DOCROOT . "/incl/header.php";
 ?>
 
 <main>Fisk</main>
@@ -9,5 +9,5 @@ require DOCROOT . "incl/header.php";
 
 <?php
 /* - Footer & Body (end) - */
-require DOCROOT . "incl/footer.php";
+require DOCROOT . "/incl/footer.php";
 ?>
