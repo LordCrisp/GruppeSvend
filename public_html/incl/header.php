@@ -8,6 +8,7 @@
 	<!-- Custom stylesheet -->
 	<link rel="stylesheet" href="/assets/css/master.css">
 	<!-- Google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Favicon -->
 	<link rel="icon" href="favicon.ico" type="image/x-icon"/>

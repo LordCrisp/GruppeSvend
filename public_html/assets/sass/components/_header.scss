@@ -1,8 +1,10 @@
 //// Header styles
 .header {
   &__container {
-    position: relative;
+    position: sticky;
+    top: 0;
     @include flex(block, row, space-between, center, wrap);
+    width: 100%;
   }
   &__row {
     position: relative;
