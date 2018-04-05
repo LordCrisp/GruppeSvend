@@ -8,6 +8,13 @@ class products {
         global $db;
         $this->db = $db;
     }
+    public function getProduct($id) {
+        $params = array(
+            $id
+        );
+        $sql = "SELECT * FROM product WHERE id = ?";
+        return $this->db->fetch_array($sql, $params);
+    }
     public function getProducts() {
         $sql = "SELECT * FROM product";
         return $this->db->fetch_array($sql);

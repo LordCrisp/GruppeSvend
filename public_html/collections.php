@@ -40,8 +40,25 @@ switch(strtoupper($mode)) {
 ?>  
 
     <?php foreach ($products as $product) : ?>
-        <a href="?mode=details&collection=<?=$collectionID?>&category=<?=$categoryID?>"><?=$product['name']?></a><br><br>
+        <a href="?mode=details&collection=<?=$collectionID?>&category=<?=$categoryID?>&product=<?=$product['id']?>"><?=$product['name']?></a><br><br>
     <?php endforeach; ?>
+
+<?php
+break;
+case "DETAILS":
+require DOCROOT . "/incl/header.php";
+$collectionID = $_GET['collection'];
+$categoryID = $_GET['category'];
+$productID = $_GET['product'];
+$products = new products();
+$products = $products->getProduct($productID);
+?>  
+
+<?php foreach ($products as $product) : ?>
+    <p><?=$product['name']?></p>
+    <?=$product['thumbnail']?>
+    <p><?=$product['description']?></p>
+<?php endforeach; ?>
 
 <?php
 }
