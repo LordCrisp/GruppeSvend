@@ -2,7 +2,7 @@
 	<!-- Collection Area (start) -->
 	<section class="sidebar__collections">
 		<?php
-		$collection = new collection();
+		$collections = new collections();
 		$i = 1;
 		foreach ($collections->sidebarCollection() as $collection) {
 
