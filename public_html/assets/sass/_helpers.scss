@@ -70,3 +70,12 @@
 @mixin transform($val) {
   @include vendor(transform, $val);
 }
+
+//// Wrapper
+@mixin wrapper($width: 1200px) {
+  margin: 16px;
+  @media only screen and (min-width: $width + 16px) {
+    width: $width;
+    margin: auto;
+  }
+}

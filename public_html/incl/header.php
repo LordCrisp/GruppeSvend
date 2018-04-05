@@ -39,7 +39,7 @@
 	</div>
 	<button type="button" class="header__button" data-menu-open="secondMenu"><i class="material-icons">menu</i></button>
 	<figure class="header__logo-container">
-		<img src="" alt="fashion-online logo" />
+		<img src="/assets/img/logo.png" alt="fashion-online logo" />
 	</figure>
 	<button type="button" class="header__button" data-search-open="search"><i class="material-icons">search</i></button>
 	<div class="header__row--nav">

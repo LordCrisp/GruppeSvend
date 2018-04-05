@@ -14,7 +14,7 @@ require DOCROOT . "/incl/header.php";
             </picture>
         </figure>
         <h2>LATEST ARRIVALS</h2>
-        <h5>Check our latest products here</h5>
+        <p>Check our latest products here</p>
         <hr>
         <?php
             $products = new products();
