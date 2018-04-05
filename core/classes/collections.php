@@ -20,4 +20,9 @@ class collections {
         $sql = "SELECT * FROM collection WHERE deleted = 0 ORDER BY RAND() LIMIT 5";
         return $this->db->fetch_array($sql);
     }
+
+	public function sidebarCollection() {
+		$sql = "SELECT * FROM collection ORDER BY id DESC LIMIT 3";
+		return $this->db->fetch_array($sql);
+	}
 }

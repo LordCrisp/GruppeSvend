@@ -4,11 +4,11 @@
 		<?php
 		$collection = new collection();
 		$i = 1;
-		foreach ($collection->sidebarCollection() as $collections) {
+		foreach ($collections->sidebarCollection() as $collection) {
 
 			echo "<figure>
-					<img src='/assets/img/collections/" . ($size = ($i == 1) ? "big" : "small") . "/$collections[thumbnail]' alt='$collections[name] image' >
-					<figcaption>$collections[name]</figcaption>
+					<img src='/assets/img/collections/" . ($size = ($i == 1) ? "big" : "small") . "/$collection[thumbnail]' alt='$collection[name] image' >
+					<figcaption>$collection[name]</figcaption>
 				</figure>";
 			$i++;
 		}?>
