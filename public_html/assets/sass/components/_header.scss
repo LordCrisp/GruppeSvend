@@ -151,3 +151,61 @@
     box-shadow: 100vw 0 0 rgba($dark, 0);
   }
 }
+
+@media only screen and (min-width: 768px) {
+  .header {
+    &__container {
+      position: relative;
+      display: block;
+    }
+    &__button {
+      display: none;
+    }
+    &__signin-form {
+      @include flex(block, row, start, center, null);
+      width: unset;
+      padding: 0;
+      p {
+        white-space: nowrap;
+        padding: 0 8px;
+      }
+      .form__group {
+        margin: 8px;
+        input {
+          width: 156px;
+        }
+      }
+      button[type='button'] {
+        margin: 0 8px;
+      }
+    }
+  }
+  #secondMenu {
+    position: relative;
+    @include flex(block, row, space-between, center, null);
+    width: 100%;
+    height: unset;
+    padding: 8px 0;
+    @include transform(none);
+    ul {
+      top: 0;
+      @include flex(block, row, start, center, null);
+      width: unset;
+      li {
+        width: unset;
+        a {
+          width: unset;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .header {
+    &__container {
+      width: 1200px;
+      margin: auto;
+    }
+  }
+}
