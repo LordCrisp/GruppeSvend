@@ -30,10 +30,33 @@
       background-color: $light;
       z-index: 1;
       ul {
+        @include flex(block, row, start, center, null);
+        width: 100%;
         li {
+          margin: 0;
           a {
+            position: relative;
+            padding: 16px 16px 8px 16px;
             color: $background;
+            font-family: Bebas, sans-serif;
+            font-size: 1.2em;
             text-transform: uppercase;
+            &::after {
+              content: ' ';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 0%;
+              background-color: $dark;
+              z-index: -1;
+              @include transition(200ms, curve());
+            }
+            &:hover {
+              &::after {
+                height: 110%;
+              }
+            }
           }
         }
       }
@@ -158,13 +181,24 @@
       position: relative;
       display: block;
     }
+    &__row {
+      &--nav {
+        ul {
+          li {
+            a {
+              font-size: 1.6em;
+            }
+          }
+        }
+      }
+    }
     &__button {
       display: none;
     }
     &__signin-form {
       @include flex(block, row, start, center, null);
       width: unset;
-      padding: 0;
+      padding: 0 8px;
       p {
         white-space: nowrap;
         padding: 0 8px;
