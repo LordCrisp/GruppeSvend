@@ -23,7 +23,38 @@
             <label>Name</label>
             <input type="text" name="name" required>
         </div>
-        <button type="submit">Signup</button>
+        <button type="submit" name="submit">Signup</button>
     </form>
+	<?php 
+		if (isset($_POST['submit'])) {
+			$email = $_POST['email'];
+			$name = $_POST['name'];
+
+			$params = array(
+				$email
+			);
+			$sql = "SELECT * FROM newsletter WHERE email = ?";
+			$emailCheck = $db->fetch_array($sql, $params);
+
+			if (!empty($emailCheck)) {
+				$msg = "This email is already signed up for our newsletters";
+			} elseif (empty($emailCheck)) {
+				$params = array(
+					$name,
+					$email
+				);
+				$sql = "INSERT INTO newsletter (name, email) VALUES (?,?)";
+				$db->query($sql, $params);
+
+				$msg = "Thank you ".$_POST['name'].", you have signed up for our newsletters with email ".$_POST['email']."";
+			}
+		?>
+
+			<!-- POPUP MODUL HER -->
+			<?=$msg?>
+
+		<?php
+		}
+	?>
 	<!-- Collection Area (start) -->
 </aside>
