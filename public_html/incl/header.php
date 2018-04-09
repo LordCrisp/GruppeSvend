@@ -34,7 +34,7 @@
 			<div class="form__group">
 				<input type="password" name="password" placeholder="Password" />
 			</div>
-			<button type="button">Go</button>
+			<button type="submit">Go</button>
 		</form>
 	</div>
 	<button type="button" class="header__button" data-menu-open="secondMenu"><i class="material-icons">menu</i></button>
