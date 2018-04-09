@@ -79,3 +79,15 @@
     margin: auto;
   }
 }
+
+//// Appearane mixin:
+@mixin appearance($val) {
+  -ms-appearance: $val;
+  -moz-appearance: $val;
+  -webkit-appearance: $val;
+}
+
+//// Border-radius mixin:
+@mixin border-radius($val) {
+  @include vendor(border-radius, $val);
+}

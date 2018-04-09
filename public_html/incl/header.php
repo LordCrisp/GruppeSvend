@@ -34,14 +34,14 @@
 			<div class="form__group">
 				<input type="password" name="password" placeholder="Password" />
 			</div>
-			<button type="button">Go</button>
+			<button type="submit">Go</button>
 		</form>
 	</div>
 	<button type="button" class="header__button" data-menu-open="secondMenu"><i class="material-icons">menu</i></button>
 	<figure class="header__logo-container">
 		<img src="/assets/img/logo.png" alt="fashion-online logo" />
 	</figure>
-	<button type="button" class="header__button" data-search-open="search"><i class="material-icons">search</i></button>
+	<button type="button" class="header__button" data-search-open="searchForm"><i class="material-icons">search</i></button>
 	<div class="header__row--nav">
 		<ul>
 			<li><a href="">home</a></li>
@@ -49,8 +49,12 @@
 			<li><a href="">women</a></li>
 			<li><a href="">collections</a></li>
 		</ul>
-		<form class="header__search" action="index.php" method="post">
-
+		<form class="search__form" action="index.php" method="post" id="searchForm">
+			<div class="search__container">
+				<label for="search"><i class="material-icons">search</i></label>
+				<input type="text" name="search" id="search" placeholder="Search" />
+				<button type="button" class="header__button" data-search-close="searchForm"><i class="material-icons">close</i></button>
+			</div>
 		</form>
 	</div>
 </header>
