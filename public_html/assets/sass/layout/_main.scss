@@ -1,5 +1,5 @@
 body{
-  background-color: $bodyMain;
+  background-color: $background;
   main {
     @include wrapper();
     padding-top: 16px;
