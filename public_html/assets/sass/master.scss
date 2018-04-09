@@ -11,6 +11,7 @@
 //// Components
 @import "components/header";
 @import "components/sidebar";
+@import "components/products";
 @import "components/search";
 
 //// General styles
@@ -31,7 +32,7 @@
 
 html {
   -webkit-text-size-adjust: 100%;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 ul {
