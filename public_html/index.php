@@ -20,12 +20,14 @@ require DOCROOT . "/incl/header.php";
             $products = new products();
             $latestProducts = $products->getLatestProducts();
         ?>
+        <div class="home__latest--main">
         <?php foreach ($latestProducts as $product) : ?>
-            <figure>
-                <img src='assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
-                <figcaption><?=$product['name']?></figcaption>
+            <figure class="home__latest--item">
+                <img class="home__latest--image" src='assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
+                <figcaption class="home__latest--caption"><?=$product['name']?></figcaption>
             </figure>
         <?php endforeach ; ?>
+        </div>
     </section>
 
     <!-- Sidebar (start) -->
