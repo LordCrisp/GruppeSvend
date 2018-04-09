@@ -20,8 +20,9 @@ CREATE TABLE IF NOT EXISTS `category` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table gruppesvend.category: ~5 rows (approximately)
+DELETE FROM `category`;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-REPLACE INTO `category` (`id`, `name`, `thumbnail`) VALUES
+INSERT INTO `category` (`id`, `name`, `thumbnail`) VALUES
 	(1, 'shoes', ''),
 	(2, 'pants', ''),
 	(3, 't-shirts', ''),
@@ -38,8 +39,9 @@ CREATE TABLE IF NOT EXISTS `collection` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table gruppesvend.collection: ~5 rows (approximately)
+DELETE FROM `collection`;
 /*!40000 ALTER TABLE `collection` DISABLE KEYS */;
-REPLACE INTO `collection` (`id`, `name`, `thumbnail`) VALUES
+INSERT INTO `collection` (`id`, `name`, `thumbnail`) VALUES
 	(1, 'winter collection', 'cray-cray.jpg'),
 	(2, 'summer collection', 'fire.jpg'),
 	(3, 'exclusive discount on womens wear', 'leopard-snake.jpg'),
@@ -55,8 +57,9 @@ CREATE TABLE IF NOT EXISTS `gender` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='Gender fluid fgdsjknfgsjnfgdsl';
 
 -- Dumping data for table gruppesvend.gender: ~3 rows (approximately)
+DELETE FROM `gender`;
 /*!40000 ALTER TABLE `gender` DISABLE KEYS */;
-REPLACE INTO `gender` (`id`, `gender`) VALUES
+INSERT INTO `gender` (`id`, `gender`) VALUES
 	(1, 'Female'),
 	(2, 'Male'),
 	(3, 'Helicopter');
@@ -68,6 +71,7 @@ CREATE TABLE IF NOT EXISTS `information` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table gruppesvend.information: ~0 rows (approximately)
+DELETE FROM `information`;
 /*!40000 ALTER TABLE `information` DISABLE KEYS */;
 /*!40000 ALTER TABLE `information` ENABLE KEYS */;
 
@@ -81,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table gruppesvend.news: ~0 rows (approximately)
+DELETE FROM `news`;
 /*!40000 ALTER TABLE `news` DISABLE KEYS */;
 /*!40000 ALTER TABLE `news` ENABLE KEYS */;
 
@@ -93,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `newsletter` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Dumping data for table gruppesvend.newsletter: ~0 rows (approximately)
+DELETE FROM `newsletter`;
 /*!40000 ALTER TABLE `newsletter` DISABLE KEYS */;
 /*!40000 ALTER TABLE `newsletter` ENABLE KEYS */;
 
@@ -117,8 +123,9 @@ CREATE TABLE IF NOT EXISTS `product` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table gruppesvend.product: ~4 rows (approximately)
+DELETE FROM `product`;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-REPLACE INTO `product` (`id`, `name`, `description`, `collection_id`, `category_id`, `gender`, `thumbnail`, `created_at`, `deleted`) VALUES
+INSERT INTO `product` (`id`, `name`, `description`, `collection_id`, `category_id`, `gender`, `thumbnail`, `created_at`, `deleted`) VALUES
 	(1, 'Herre Sko', 'dælskdælaksdæalkdæsalkdakjsdhksajh', 2, 2, 2, 'sk.jpg', '2018-04-04 10:59:44', 0),
 	(2, 'Bagudvendt Hat', 'dasljhdaskjdhaskhjddkasjd', 3, 1, 1, 'hat.jpg', '2018-04-04 11:08:01', 0),
 	(3, 'Jak', 'ljkklfjklndklklklæ', 3, 2, 1, 'jak.jpg', '2018-04-04 12:47:06', 0),
@@ -133,8 +140,9 @@ CREATE TABLE IF NOT EXISTS `role` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table gruppesvend.role: ~2 rows (approximately)
+DELETE FROM `role`;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
-REPLACE INTO `role` (`id`, `name`) VALUES
+INSERT INTO `role` (`id`, `name`) VALUES
 	(1, 'admin'),
 	(2, 'retailer');
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
@@ -152,8 +160,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table gruppesvend.user: ~2 rows (approximately)
+DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-REPLACE INTO `user` (`id`, `name`, `password`, `address`, `role_id`) VALUES
+INSERT INTO `user` (`id`, `name`, `password`, `address`, `role_id`) VALUES
 	(2, 'admin', 'admin', '', 1),
 	(3, 'retailer', 'retailer', '', 2);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
