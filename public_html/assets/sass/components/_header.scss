@@ -5,6 +5,10 @@
     top: 0;
     @include flex(block, row, space-between, center, wrap);
     width: 100%;
+    background-color: $background;
+  }
+  &__logo-container {
+    margin: 8px 0;
   }
   &__row {
     position: relative;
@@ -101,7 +105,8 @@
         }
       }
     }
-    button[type='button'] {
+    button[type='submit'] {
+      cursor: pointer;
       position: relative;
       @include flex(block, row, center, center, null);
       height: 36px;
@@ -112,6 +117,10 @@
       background-color: $accentLight;
       color: $background;
       font-weight: 500;
+      @include transition(300ms, curve());
+      &:hover {
+        background-color: lighten($accentLight, 5%);
+      }
     }
   }
 }

@@ -18,13 +18,29 @@ for (var z = 0; z < headerButtons.length; z++) {
       if (!menu.classList.contains('active')) {
         menu.classList.add('active');
       }
-    } if (elem.dataset.menuClose) {
+    } else if (elem.dataset.menuClose) {
       var target = elem.dataset.menuClose;
       var menu = document.getElementById(target);
       if (menu.classList.contains('active')) {
         menu.classList.replace('active', 'closing');
         setTimeout(function() {
           menu.classList.remove('closing');
+        }, 400);
+      }
+    }
+    if (elem.dataset.searchOpen) {
+      var target = elem.dataset.searchOpen;
+      var search = document.getElementById(target);
+      if (!search.classList.contains('active')) {
+        search.classList.add('active');
+      }
+    } else if (elem.dataset.searchClose) {
+      var target = elem.dataset.searchClose;
+      var search = document.getElementById(target);
+      if (search.classList.contains('active')) {
+        search.classList.replace('active', 'closing');
+        setTimeout(function() {
+          search.classList.remove('closing');
         }, 400);
       }
     }
