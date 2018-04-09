@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Vært: 127.0.0.1
--- Genereringstid: 04. 04 2018 kl. 12:04:15
+-- Genereringstid: 09. 04 2018 kl. 08:45:18
 -- Serverversion: 10.1.26-MariaDB
 -- PHP-version: 7.1.9
 
@@ -62,10 +62,31 @@ CREATE TABLE `collection` (
 --
 
 INSERT INTO `collection` (`id`, `name`, `thumbnail`) VALUES
-(1, 'winter collection', ''),
-(2, 'summer collection', ''),
-(3, 'exclusive discount on womens wear', ''),
-(4, 'exclusive discount on ladies wear', '');
+(1, 'winter collection', 'cray-cray.jpg'),
+(2, 'summer collection', 'fire.jpg'),
+(3, 'exclusive discount on womens wear', 'leopard-snake.jpg'),
+(4, 'exclusive discount on ladies wear', 'something.jpg'),
+(5, 'Hamsters With people in them', 'water.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur-dump for tabellen `gender`
+--
+
+CREATE TABLE `gender` (
+  `id` int(11) NOT NULL,
+  `gender` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Gender fluid fgdsjknfgsjnfgdsl';
+
+--
+-- Data dump for tabellen `gender`
+--
+
+INSERT INTO `gender` (`id`, `gender`) VALUES
+(1, 'Female'),
+(2, 'Male'),
+(3, 'Helicopter');
 
 -- --------------------------------------------------------
 
@@ -102,6 +123,16 @@ CREATE TABLE `newsletter` (
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Data dump for tabellen `newsletter`
+--
+
+INSERT INTO `newsletter` (`id`, `name`, `email`) VALUES
+(1, 'mathias', 'mathias@glks.dk'),
+(4, 'asdasd', 'sadad@sldj.k'),
+(6, 'sadasd', 'sdasd@xn--skald-rra.dk'),
+(7, 'lakdjasd', 'ldksajd@ldskd.dk');
+
 -- --------------------------------------------------------
 
 --
@@ -126,7 +157,11 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`id`, `name`, `description`, `collection_id`, `category_id`, `gender`, `thumbnail`, `created_at`, `deleted`) VALUES
 (1, 'test product 1', 'dælskdælaksdæalkdæsalkdakjsdhksajh', 2, 2, 0, '', '2018-04-04 08:59:44', 0),
-(2, 'test product 2', 'dasljhdaskjdhaskhjddkasjd', 3, 1, 0, '', '2018-04-04 09:08:01', 0);
+(2, 'test product 2', 'dasljhdaskjdhaskhjddkasjd', 3, 1, 0, '', '2018-04-04 09:08:01', 0),
+(3, 'Jak', 'ljkklfjklndklklklæ', 3, 2, 1, 'jak.jpg', '2018-04-04 10:47:06', 0),
+(4, 'Task', 'dfgbhnm,fvdjk fzvd jmn,fbm,. ', 4, 4, 2, 'task.jpg', '2018-04-04 10:47:55', 0),
+(5, 'Herre Sko', 'dælskdælaksdæalkdæsalkdakjsdhksajh\r\n', 2, 2, 2, 'sk.jpg', '2018-04-09 06:44:58', 0),
+(6, 'Bagudvendt Hat', 'dasljhdaskjdhaskhjddkasjd', 3, 1, 1, 'hat.jpg', '2018-04-09 06:44:58', 0);
 
 -- --------------------------------------------------------
 
@@ -158,16 +193,40 @@ CREATE TABLE `user` (
   `name` varchar(100) NOT NULL,
   `password` varchar(200) NOT NULL,
   `address` varchar(100) NOT NULL,
-  `role_id` int(11) NOT NULL
+  `role_id` int(11) NOT NULL,
+  `deleted` tinyint(1) NOT NULL,
+  `salt` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Data dump for tabellen `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `password`, `address`, `role_id`) VALUES
-(2, 'admin', 'admin', '', 1),
-(3, 'retailer', 'retailer', '', 2);
+INSERT INTO `user` (`id`, `name`, `password`, `address`, `role_id`, `deleted`, `salt`) VALUES
+(2, 'admin', '$2y$10$0ee5M0LFrNPaCk30r2WVee28Wka0m/BgZwZEaTDdomPRpl25ZDw.u', '', 1, 0, ''),
+(3, 'retailer', 'retailer', '', 2, 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur-dump for tabellen `user_session`
+--
+
+CREATE TABLE `user_session` (
+  `session_id` varchar(50) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `logged_in` tinyint(1) NOT NULL,
+  `last_action` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Data dump for tabellen `user_session`
+--
+
+INSERT INTO `user_session` (`session_id`, `user_id`, `logged_in`, `last_action`) VALUES
+('dn0rvqlnr1pensae2g6950i0ko', 2, 1, 1522925016),
+('dn0rvqlnr1pensae2g6950i0ko', 2, 1, 1522925023),
+('dn0rvqlnr1pensae2g6950i0ko', 2, 1, 1522925056);
 
 --
 -- Begrænsninger for dumpede tabeller
@@ -183,6 +242,12 @@ ALTER TABLE `category`
 -- Indeks for tabel `collection`
 --
 ALTER TABLE `collection`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks for tabel `gender`
+--
+ALTER TABLE `gender`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -232,7 +297,13 @@ ALTER TABLE `category`
 -- Tilføj AUTO_INCREMENT i tabel `collection`
 --
 ALTER TABLE `collection`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Tilføj AUTO_INCREMENT i tabel `gender`
+--
+ALTER TABLE `gender`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `news`
@@ -244,13 +315,13 @@ ALTER TABLE `news`
 -- Tilføj AUTO_INCREMENT i tabel `newsletter`
 --
 ALTER TABLE `newsletter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `role`
