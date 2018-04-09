@@ -1,6 +1,7 @@
 <aside class="sidebar__main">
 	<!-- Collection Area (start) -->
 	<section class="sidebar__collections">
+        <h2>Collections</h2>
 		<?php
 		$collections = new collections();
 		$i = 1;
