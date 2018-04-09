@@ -1,0 +1,63 @@
+.product-slider {
+  &__container {
+    position: relative;
+    @include wrapper();
+    margin-top: 10vh;
+    padding: 16px;
+    background-color: white;
+  }
+  &__button {
+    @include appearance(none);
+    cursor: pointer;
+    position: absolute;
+    top: calc(50% - 24px);
+    display: none;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 100%;
+    background-color: $dark;
+    color: $background;
+    z-index: 10;
+    opacity: 1;
+    @include transition(300ms, curve());
+    i {
+      position: absolute;
+      top: calc(50% - 12px);
+      left: calc(50% - 12px);
+      @include transform(scale(2));
+    }
+    &--next {
+      @extend .product-slider__button;
+      right: 0;
+    }
+    &--prev {
+      @extend .product-slider__button;
+      left: 0;
+    }
+    &.swiper-button-disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 1256px) {
+  .product-slider {
+    &__container {
+      .swiper-container,
+      .swiper-container.swiper-container-horizontal {
+        width: calc(100% - 120px);
+      }
+    }
+    &__button {
+      display: block;
+      &--next {
+        right: 12px;
+      }
+      &--prev {
+        left: 12px;
+      }
+    }
+  }
+}

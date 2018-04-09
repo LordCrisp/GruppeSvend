@@ -24,7 +24,7 @@ class products {
         return $this->db->fetch_array($sql);
     }
     public function getRandomProducts() {
-        $sql = "SELECT * FROM product WHERE deleted = 0 ORDER BY RAND() LIMIT 5";
+        $sql = "SELECT * FROM product WHERE deleted = 0 ORDER BY RAND() LIMIT 15";
         return $this->db->fetch_array($sql);
     }
     public function getCollectionProducts($collection, $category) {
