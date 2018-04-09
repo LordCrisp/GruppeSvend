@@ -6,9 +6,8 @@
 		$i = 1;
 		foreach ($collections->sidebarCollection() as $collection) {
 
-			echo "<figure>
+			echo "<figure class='sidebar__collections--image'>
 					<img src='/assets/img/collections/" . ($size = ($i == 1) ? "big" : "small") . "/$collection[thumbnail]' alt='$collection[name] image' >
-					<figcaption>$collection[name]</figcaption>
 				</figure>";
 			$i++;
 		}?>

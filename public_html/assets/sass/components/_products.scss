@@ -1,0 +1,8 @@
+.product-list{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  .product-list__item{
+    height: 200px;
+    overflow: hidden;
+  }
+}
