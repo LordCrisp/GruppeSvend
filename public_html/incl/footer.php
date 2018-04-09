@@ -1,3 +1,18 @@
+<!-- Product slider (start) -->
+<section class="product-slider">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <?php $products = new Products();
+      $latestProducts = Products->getLatestProducts();
+      foreach ($latestProducts as $product) : ?>
+      <div class="swiper-slide">
+      </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+<!-- Product slider (end) -->
+
 <!-- Footer (start) -->
 <footer>
 
@@ -48,4 +63,5 @@ for (var z = 0; z < headerButtons.length; z++) {
 }
 </script>
 <!-- Menu script (end) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.x.x/js/swiper.min.js"></script>
 <!-- Scripts (end) -->
