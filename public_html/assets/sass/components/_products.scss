@@ -1,19 +1,25 @@
 .product-list{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 56px;
   .product-list__item{
-    //position: relative;
-    height: 240px;
-    //overflow: hidden;
+    height: 260px;
     .product-list__image{
       height: 200px;
     }
     .product-list__caption{
-      //position: absolute;
-      //bottom: 0;
-      //z-index: 100;
+      margin-top: 8px;
       font-weight: 500;
+      line-height: 24px;
+      a {
+        color: $accent;
+      }
     }
+  }
+}
+@media only screen and (min-width: 768px){
+  .product-list {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

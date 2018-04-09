@@ -15,7 +15,7 @@ require DOCROOT . "/incl/header.php";
         </figure>
         <h2>LATEST ARRIVALS</h2>
         <p>Check our latest products here</p>
-        <hr>
+        <hr style="margin-bottom: 22px">
         <?php
             $products = new products();
             $latestProducts = $products->getLatestProducts();
@@ -24,7 +24,10 @@ require DOCROOT . "/incl/header.php";
         <?php foreach ($latestProducts as $product) : ?>
             <figure class="product-list__item">
                 <img class="product-list__image" src='assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
-                <figcaption class="product-list__caption"><?=$product['name']?></figcaption>
+                <figcaption class="product-list__caption">
+                    <?=$product['name']?> <br>
+                    <a href="details.php?product=<?=$product['id']?>">More ></a>
+                </figcaption>
             </figure>
         <?php endforeach ; ?>
         </div>

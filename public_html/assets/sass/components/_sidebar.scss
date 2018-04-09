@@ -1,5 +1,18 @@
-.sidebar__collections{
-  .sidebar__collections--image {
-    margin-bottom: 12px;
+.sidebar__main{
+  margin-top: 62px;
+  .sidebar__collections{
+    .sidebar__collections--image {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+//Desktop Style
+@media only screen and (min-width: 768px) {
+  .sidebar__main{
+    margin-top: 0 !important;
+    h2{
+      display: none;
+    }
   }
 }
