@@ -49,15 +49,16 @@
     }
     &__container {
       position: absolute;
-      top: 12px;
-      left: 12px;
-      width: calc(100% - 24px);
+      top: 11px;
+      left: 11px;
+      width: calc(100% - 22px);
       height: 48px;
       padding: 0;
       margin: 0;
       box-shadow: 0 28px 112px 0 rgba(0,0,0,0.3);
       label {
-        width: 48px;
+        @include flex(block, row, center, center, null);
+        width: 48px !important;
         height: 48px;
       }
       input {
