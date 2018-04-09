@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `category` (
 
 -- Dumping data for table gruppesvend.category: ~5 rows (approximately)
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT IGNORE INTO `category` (`id`, `name`, `thumbnail`) VALUES
+REPLACE INTO `category` (`id`, `name`, `thumbnail`) VALUES
 	(1, 'shoes', ''),
 	(2, 'pants', ''),
 	(3, 't-shirts', ''),
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `collection` (
 
 -- Dumping data for table gruppesvend.collection: ~5 rows (approximately)
 /*!40000 ALTER TABLE `collection` DISABLE KEYS */;
-INSERT IGNORE INTO `collection` (`id`, `name`, `thumbnail`) VALUES
+REPLACE INTO `collection` (`id`, `name`, `thumbnail`) VALUES
 	(1, 'winter collection', 'cray-cray.jpg'),
 	(2, 'summer collection', 'fire.jpg'),
 	(3, 'exclusive discount on womens wear', 'leopard-snake.jpg'),
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `gender` (
 
 -- Dumping data for table gruppesvend.gender: ~3 rows (approximately)
 /*!40000 ALTER TABLE `gender` DISABLE KEYS */;
-INSERT IGNORE INTO `gender` (`id`, `gender`) VALUES
+REPLACE INTO `gender` (`id`, `gender`) VALUES
 	(1, 'Female'),
 	(2, 'Male'),
 	(3, 'Helicopter');
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 
 -- Dumping data for table gruppesvend.product: ~4 rows (approximately)
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT IGNORE INTO `product` (`id`, `name`, `description`, `collection_id`, `category_id`, `gender`, `thumbnail`, `created_at`, `deleted`) VALUES
+REPLACE INTO `product` (`id`, `name`, `description`, `collection_id`, `category_id`, `gender`, `thumbnail`, `created_at`, `deleted`) VALUES
 	(1, 'Herre Sko', 'dælskdælaksdæalkdæsalkdakjsdhksajh', 2, 2, 2, 'sk.jpg', '2018-04-04 10:59:44', 0),
 	(2, 'Bagudvendt Hat', 'dasljhdaskjdhaskhjddkasjd', 3, 1, 1, 'hat.jpg', '2018-04-04 11:08:01', 0),
 	(3, 'Jak', 'ljkklfjklndklklklæ', 3, 2, 1, 'jak.jpg', '2018-04-04 12:47:06', 0),
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `role` (
 
 -- Dumping data for table gruppesvend.role: ~2 rows (approximately)
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT IGNORE INTO `role` (`id`, `name`) VALUES
+REPLACE INTO `role` (`id`, `name`) VALUES
 	(1, 'admin'),
 	(2, 'retailer');
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 -- Dumping data for table gruppesvend.user: ~2 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT IGNORE INTO `user` (`id`, `name`, `password`, `address`, `role_id`) VALUES
+REPLACE INTO `user` (`id`, `name`, `password`, `address`, `role_id`) VALUES
 	(2, 'admin', 'admin', '', 1),
 	(3, 'retailer', 'retailer', '', 2);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
