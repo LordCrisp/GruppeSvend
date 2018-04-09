@@ -13,6 +13,8 @@
 	<!-- Favicon -->
 	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+	<!-- Swiper stylesheet -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.2/css/swiper.min.css">
 </head>
 
 <!-- Body (start) -->

@@ -3,7 +3,7 @@
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 16px;
   grid-row-gap: 56px;
-  .product-list__item{
+  &__item{
     height: 220px;
     .product-list__image{
       height: 180px;
