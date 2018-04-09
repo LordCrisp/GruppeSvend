@@ -1,7 +1,7 @@
 <aside class="sidebar__main">
 	<!-- Collection Area (start) -->
 	<section class="sidebar__collections">
-        <h2>Collections</h2>
+        <h2 class="sidebar__collections--heading">Collections</h2>
 		<?php
 		$collections = new collections();
 		$i = 1;
@@ -13,13 +13,14 @@
 			$i++;
 		}?>
 	</section>
-    <form method="post">
+    <form method="post" class="sidebar__newsletter">
         <h2>Signup to newsletter</h2>
-        <div>
+        <hr style="margin-bottom: 22px">
+        <div class="sidebar__newsletter--input">
             <label>Email</label>
             <input type="email" name="email" required>
         </div>
-        <div>
+        <div class="sidebar__newsletter--input">
             <label>Name</label>
             <input type="text" name="name" required>
         </div>

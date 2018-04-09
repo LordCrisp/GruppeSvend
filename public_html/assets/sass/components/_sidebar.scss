@@ -5,13 +5,42 @@
       margin-bottom: 12px;
     }
   }
+  .sidebar__newsletter{
+    background-color: white;
+    padding: 30px;
+    h2{
+      margin: 0;
+      display: block;
+    }
+    .sidebar__newsletter--input{
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-column-gap: 32px;
+      margin: 16px 0;
+      line-height: 26px;
+      label{
+        text-align: right;
+        color: $lightText;
+      }
+      input {
+        background-color: $backgroundDark;
+        border: none;
+      }
+    }
+    button{
+      padding: 8px 36px;
+      background-color: $backgroundDark;
+      color: $lightText;
+      border: none;
+    }
+  }
 }
 
 //Desktop Style
 @media only screen and (min-width: 768px) {
   .sidebar__main{
     margin-top: 0 !important;
-    h2{
+    .sidebar__collections--heading{
       display: none;
     }
   }
