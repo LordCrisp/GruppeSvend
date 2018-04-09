@@ -1,0 +1,31 @@
+footer {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  @include wrapper();
+  padding: 30px;
+  background-color: $dark;
+  color: $lightText;
+  nav {
+    ul {
+      li {
+        display: inline-block;
+        border-right: 1px solid $lightText;
+        padding: 0 8px;
+        &:first-of-type {
+          padding: 0 8px 0 0;
+        }
+        a {
+          color: $lightText;
+        }
+        &:last-of-type {
+          border-right: none;
+        }
+      }
+    }
+    p {
+      a {
+        color: white;
+      }
+    }
+  }
+}
