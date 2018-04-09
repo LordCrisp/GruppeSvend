@@ -1,8 +1,19 @@
 .product-list{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
   .product-list__item{
-    height: 200px;
-    overflow: hidden;
+    //position: relative;
+    height: 240px;
+    //overflow: hidden;
+    .product-list__image{
+      height: 200px;
+    }
+    .product-list__caption{
+      //position: absolute;
+      //bottom: 0;
+      //z-index: 100;
+      font-weight: 500;
+    }
   }
 }
