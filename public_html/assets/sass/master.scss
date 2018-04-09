@@ -6,9 +6,11 @@
 @import "style/typography";
 
 //// Layout
+@import "layout/main";
 
 //// Components
 @import "components/header";
+@import "components/sidebar";
 @import "components/search";
 
 //// General styles
@@ -29,7 +31,7 @@
 
 html {
   -webkit-text-size-adjust: 100%;
-  font-family: 'Signika', sans-serif;
+  font-family: sans-serif;
 }
 
 ul {

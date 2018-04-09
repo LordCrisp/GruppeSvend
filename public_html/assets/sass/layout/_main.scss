@@ -1,0 +1,16 @@
+body{
+  background-color: $bodyMain;
+  main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 16px;
+    @include wrapper();
+    padding-top: 16px;
+    figure {
+      margin: 0;
+    }
+  }
+  img {
+    width: 100%;
+  }
+}
