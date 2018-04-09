@@ -49,8 +49,11 @@
 			<li><a href="">women</a></li>
 			<li><a href="">collections</a></li>
 		</ul>
-		<form class="header__search" action="index.php" method="post">
-
+		<form class="search__form" action="index.php" method="post">
+			<div class="search__container">
+				<label for="search"><i class="material-icons">search</i></label>
+				<input type="text" name="search" id="search" placeholder="Search" />
+			</div>
 		</form>
 	</div>
 </header>

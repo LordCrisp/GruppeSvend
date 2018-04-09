@@ -1,0 +1,46 @@
+.search {
+  &__form {
+    position: relative;
+    display: block;
+  }
+  &__container {
+    position: relative;
+    @include flex(block, row-reverse, start, center, null);
+    height: 32px;
+    @include border-radius(32px);
+    padding: 0 16px;
+    margin: 0 16px;
+    background-color: $background;
+    label {
+      @include flex(block, row, center, center, null);
+      width: 32px;
+      height: 32px;
+      color: $accent;
+    }
+    input {
+      @include appearance(none);
+      border: none;
+      background-color: transparent;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .search {
+    &__form {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    &__container {
+      label {
+
+      }
+      input {
+
+      }
+    }
+  }
+}

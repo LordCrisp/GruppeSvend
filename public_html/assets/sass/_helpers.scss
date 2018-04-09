@@ -70,3 +70,15 @@
 @mixin transform($val) {
   @include vendor(transform, $val);
 }
+
+//// Appearane mixin:
+@mixin appearance($val) {
+  -ms-appearance: $val;
+  -moz-appearance: $val;
+  -webkit-appearance: $val;
+}
+
+//// Border-radius mixin:
+@mixin border-radius($val) {
+  @include vendor(border-radius, $val);
+}
