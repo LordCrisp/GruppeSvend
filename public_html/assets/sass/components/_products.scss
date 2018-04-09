@@ -4,9 +4,9 @@
   grid-column-gap: 16px;
   grid-row-gap: 56px;
   &__item{
-    height: 260px;
+    height: 220px;
     .product-list__image{
-      height: 200px;
+      height: 180px;
     }
     .product-list__caption{
       margin-top: 8px;
@@ -18,8 +18,14 @@
     }
   }
 }
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 769px){
   .product-list {
     grid-template-columns: 1fr 1fr 1fr;
+    .product-list__item {
+      height: 260px;
+      .product-list__image {
+        height: 200px;
+      }
+    }
   }
 }
