@@ -1,8 +1,7 @@
 .product-slider {
   &__container {
     position: relative;
-    @include wrapper();
-    margin-top: 10vh;
+    margin: 56px;
     padding: 16px;
     background-color: white;
   }
@@ -41,7 +40,15 @@
     }
   }
 }
-
+@media only screen and (min-width: 1200px) {
+  .product-slider {
+    &__container {
+      width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
 @media only screen and (min-width: 1256px) {
   .product-slider {
     &__container {
