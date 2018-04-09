@@ -4,6 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#2D2D2D" id="theme_color">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="favicon.ico" type="image/icon-x" />
+	<!-- Title -->
 	<title>Fashion Online | <?= $pageTitle ?> <?= $pageSection ?></title>
 	<!-- Custom stylesheet -->
 	<link rel="stylesheet" href="/assets/css/master.css">
