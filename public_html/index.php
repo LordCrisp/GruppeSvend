@@ -22,7 +22,7 @@ require DOCROOT . "/incl/header.php";
         <div class="product-list">
         <?php foreach ($latestProducts as $product) : ?>
             <figure class="product-list__item">
-                <img class="product-list__image" src='assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
+                <img class="product-list__image" src='/assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
                 <figcaption class="product-list__caption">
                     <?=$product['name']?> <br>
                     <a href="details.php?product=<?=$product['id']?>">More ></a>

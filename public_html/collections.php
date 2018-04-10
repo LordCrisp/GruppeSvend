@@ -11,7 +11,8 @@ $mode = isset($_REQUEST["mode"]) && !empty($_REQUEST["mode"]) ? $_REQUEST["mode"
 //Insert Header
 require DOCROOT . "/incl/header.php";?>
 <!-- Product List (start) -->
-<section class="product-list">
+<section>
+    <div class="product-list">
 
 <?php
 /* ---------- */
@@ -23,7 +24,13 @@ default:
     case "LIST": ?>
 
         <?php foreach ($collections as $collection) : ?>
-            <a href="?mode=categories&collection=<?=$collection['id']?>"><?=$collection['name']?></a><br><br>
+        <figure class="product-list__item">
+            <img class="product-list__image" src='/assets/img/collections/small/<?=$collection['thumbnail']?>' alt='Picture of <?=$collection['name']?>'>
+            <figcaption class="product-list__caption">
+				<?=$collection['name']?> <br>
+                <a href="?mode=categories&collection=<?=$collection['id']?>">More ></a>
+            </figcaption>
+        </figure>
         <?php endforeach; ?>
 
     <?php
@@ -36,13 +43,11 @@ default:
         ?>
 
             <?php foreach ($categories as $category) : ?>
-                <a href="?mode=products&collection=<?=$collectionID?>&category=<?=$category['id']?>"><?=$category['name']?></a><br><br>
-
                 <figure class="product-list__item">
-                    <img class="product-list__image" src='assets/img/products/<?=$category['thumbnail']?>' alt='Picture of <?=$category['name']?>'>
+                    <img class="product-list__image" src='/assets/img/products/<?=$category['thumbnail']?>' alt='Picture of <?=$category['name']?>'>
                     <figcaption class="product-list__caption">
                         <?=$category['name']?> <br>
-                        <a href="details.php?product=<?=$category['id']?>">More ></a>
+                        <a href="?mode=products&collection=<?=$collectionID?>&category=<?=$category['id']?>">More ></a>
                     </figcaption>
                 </figure>
             <?php endforeach; ?>
@@ -64,7 +69,7 @@ default:
                         <img class="product-list__image" src='assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
                         <figcaption class="product-list__caption">
                             <?=$product['name']?> <br>
-                            <a href="details.php?product=<?=$product['id']?>">More ></a>
+                            <a href="?mode=details&collection=<?=$collectionID?>&category=<?=$categoryID?>&steffen=useless&product=<?=$product['id']?>">More ></a>
                         </figcaption>
                     </figure>
                 <?php endforeach; ?>
@@ -77,7 +82,6 @@ default:
 
     // DETAILS OF THE SELECTED PRODUCT
     case "DETAILS":
-        require DOCROOT . "/incl/header.php";
         $collectionID = $_GET['collection'];
         $categoryID = $_GET['category'];
         $productID = $_GET['product'];
@@ -95,6 +99,7 @@ default:
     }
     //Switch (end)
     ?>
+        </div>
     </section>
     <!-- Product List (end) -->
 
