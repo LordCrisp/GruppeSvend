@@ -4,7 +4,6 @@ require "incl/cms_init.php";
 $product = new products();
 $collections = new collections();
 $categories = new categories();
-$upload = new upload();
 
 $mode = isset($_REQUEST["mode"]) && !empty($_REQUEST["mode"]) ? $_REQUEST["mode"] : "";
 
@@ -59,7 +58,6 @@ break;
 <?php 
     $collections = $collections->getCollections();
 	$categories = $categories->getCategories();
-    $upload = $upload->uploadImage('assets/img/products');
     if (isset($_GET['id'])) {
         $product->getProduct($_GET['id']);
     }
