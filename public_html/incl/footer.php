@@ -119,4 +119,27 @@ for (var z = 0; z < headerButtons.length; z++) {
   });
 </script>
 <!-- Swiper scripts (end) -->
+<!-- Search script (start) -->
+<script>
+const liveSearchResults = document.getElementById('liveSearch');
+function liveSearch(str) {
+  if (str != 0) {
+    loadDoc(str);
+  } else {
+    liveSearchResults.innerHTML = '';
+  }
+}
+function loadDoc(str) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      liveSearchResults.innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("POST", "incl/search.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("search=" + str);
+}
+</script>
+<!-- Search script (end) -->
 <!-- Scripts (end) -->

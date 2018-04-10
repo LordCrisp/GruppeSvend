@@ -54,12 +54,13 @@
 			<li><a href="/collections.php?women">women</a></li>
 			<li><a href="/collections.php?collections">collections</a></li>
 		</ul>
-		<form class="search__form" action="index.php" method="post" id="searchForm">
+		<form class="search__form" action="incl/search.php" method="post" id="searchForm">
 			<div class="search__container">
 				<label for="search"><i class="material-icons">search</i></label>
-				<input type="text" name="search" id="search" placeholder="Search" />
+				<input type="text" name="search" id="search" placeholder="Search" onkeyup="liveSearch(this.value)" autocomplete="off" />
 				<button type="button" class="header__button" data-search-close="searchForm"><i class="material-icons">close</i></button>
 			</div>
+			<ul class="search__results" id="liveSearch"></ul>
 		</form>
 	</div>
 </header>

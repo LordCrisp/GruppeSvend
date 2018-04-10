@@ -30,8 +30,6 @@
       }
     }
     &--nav {
-      position: sticky;
-      top: 0;
       @extend .header__row;
       background-color: $light;
       z-index: 1;
