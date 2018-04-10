@@ -19,9 +19,26 @@ class products {
         $params = array(
             $id
         );
-        $sql = "SELECT * FROM product WHERE id = ?";
-        return $this->db->fetch_array($sql, $params);
+        $sql = "SELECT product.*, gender.gender, collection.name AS collection_name FROM product 
+				INNER JOIN gender 
+				ON product.gender = gender.id 
+				INNER JOIN collection 
+				ON product.collection_id = collection.id
+			  	WHERE product.id = ?";
+	    $row = $this->db->fetch_array($sql, $params);
+
+	    if (count($row)){
+		    $row = call_user_func_array('array_merge', $row);
+
+		    $this->id = $row['id'];
+		    $this->name = $row['name'];
+		    $this->thumbnail = $row['thumbnail'];
+		    $this->description = $row['description'];
+		    $this->gender = $row['gender'];
+		    $this->collection_name = $row['collection_name'];
+	    }
     }
+
     public function getProducts() {
         $sql = "SELECT * FROM product";
         return $this->db->fetch_array($sql);
