@@ -57,6 +57,14 @@ class products {
               OR gender.gender LIKE '$query%'";
         return $this->db->fetch_array($sql);
     }
+    public function searchCategories($query) {
+        $sql = "SELECT * FROM category WHERE name LIKE '%$query%'";
+        return $this->db->fetch_array($sql);
+    }
+    public function searchCollections($query) {
+        $sql = "SELECT * FROM collection WHERE name LIKE '%$query%'";
+        return $this->db->fetch_array($sql);
+    }
     public function getLatestProducts() {
         $sql = "SELECT * FROM product WHERE deleted = 0 ORDER BY created_at DESC LIMIT 6";
         return $this->db->fetch_array($sql);

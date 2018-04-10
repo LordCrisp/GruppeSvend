@@ -82,6 +82,12 @@
           animation-delay: $i * 20ms;
         }
       }
+      &.noresult {
+        @include flex(block, row, center, center, null);
+        padding: 16px;
+        color: rgba($dark, 0.6);
+        font-weight: 500;
+      }
     }
   }
 }
@@ -141,6 +147,8 @@
     &__results {
       position: absolute !important;
       bottom: unset;
+      left: auto;
+      right: 0;
       li {
         width: 100%;
         padding: 12px;
