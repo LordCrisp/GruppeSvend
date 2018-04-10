@@ -58,11 +58,11 @@ class products {
         return $this->db->fetch_array($sql);
     }
     public function searchCategories($query) {
-        $sql = "SELECT * FROM category WHERE name LIKE '$query%'";
+        $sql = "SELECT * FROM category WHERE name LIKE '%$query%'";
         return $this->db->fetch_array($sql);
     }
     public function searchCollections($query) {
-        $sql = "SELECT * FROM collection WHERE name LIKE '$query%'";
+        $sql = "SELECT * FROM collection WHERE name LIKE '%$query%'";
         return $this->db->fetch_array($sql);
     }
     public function getLatestProducts() {
