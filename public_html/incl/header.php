@@ -54,7 +54,7 @@
 			<li><a href="/collections.php?women">women</a></li>
 			<li><a href="/collections.php?collections">collections</a></li>
 		</ul>
-		<form class="search__form" action="incl/search.php" method="post" id="searchForm">
+		<form class="search__form" method="post" id="searchForm">
 			<div class="search__container">
 				<label for="search"><i class="material-icons">search</i></label>
 				<input type="text" name="search" id="search" placeholder="Search" onkeyup="liveSearch(this.value)" autocomplete="off" />

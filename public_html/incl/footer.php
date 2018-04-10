@@ -133,7 +133,11 @@ function loadDoc(str) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      liveSearchResults.innerHTML = this.responseText;
+      if (this.responseText != '') {
+        liveSearchResults.innerHTML = this.responseText;
+      } else {
+        liveSearchResults.innerHTML = '<li class="noresult">No match found :(</li>';
+      }
     }
   };
   xhttp.open("POST", "incl/search.php", true);
