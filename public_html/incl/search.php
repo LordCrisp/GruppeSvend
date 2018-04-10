@@ -4,7 +4,6 @@ require 'init.php';
 
 $products = new Products();
 $searchResult = $products->searchProducts($_POST['search']);
-
 foreach ($searchResult as $product) : ?>
   <li>
     <figure>

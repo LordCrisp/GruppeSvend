@@ -44,8 +44,18 @@ class products {
         return $this->db->fetch_array($sql);
     }
     public function searchProducts($query) {
-      $sql = "SELECT * FROM product WHERE name LIKE '%$query%'";
-      return $this->db->fetch_array($sql);
+        $sql = "SELECT product.*, gender.gender, collection.name AS collection_name, category.name AS category_name FROM product
+              INNER JOIN gender
+              ON product.gender = gender.id
+              INNER JOIN collection
+              ON product.collection_id = collection.id
+              INNER JOIN category
+              ON product.category_id = category.id
+              WHERE product.name LIKE '%$query%'
+              OR collection.name LIKE '%$query%'
+              OR category.name LIKE '%$query%'
+              OR gender.gender LIKE '$query%'";
+        return $this->db->fetch_array($sql);
     }
     public function getLatestProducts() {
         $sql = "SELECT * FROM product WHERE deleted = 0 ORDER BY created_at DESC LIMIT 6";
