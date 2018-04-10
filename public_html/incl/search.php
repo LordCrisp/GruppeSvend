@@ -18,7 +18,6 @@ $searchResultCollection = $products->searchCollections($_POST['search']);
     </figcaption>
   </li>
 <?php endforeach; ?>
-
 <?php foreach ($searchResultCategory as $category) : ?>
   <li>
     <figure>
@@ -30,7 +29,6 @@ $searchResultCollection = $products->searchCollections($_POST['search']);
     </figcaption>
   </li>
 <?php endforeach; ?>
-
 <?php foreach ($searchResult as $product) : ?>
   <li>
     <figure>
