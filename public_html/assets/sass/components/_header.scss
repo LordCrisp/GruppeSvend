@@ -6,6 +6,7 @@
     @include flex(block, row, space-between, center, wrap);
     width: 100%;
     background-color: $background;
+    z-index: 99999;
   }
   &__logo-container {
     margin: 8px 0;

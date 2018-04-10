@@ -36,7 +36,7 @@ $searchResultCollection = $products->searchCollections($_POST['search']);
     </figure>
     <figcaption>
       <p><?=$product['name']?></p>
-      <a href="details.php?product=<?=$product['id']?>">More ></a>
+      <a href="collection.php?mode=details&product=<?=$product['id']?>">More ></a>
     </figcaption>
   </li>
 <?php endforeach; ?>

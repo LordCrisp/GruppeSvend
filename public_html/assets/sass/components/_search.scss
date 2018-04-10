@@ -34,6 +34,7 @@
     left: 24px;
     width: calc(100% - 48px);
     font-family: 'Roboto', sans-serif;
+    z-index: 99999999999999999999;
     li {
       position: relative;
       @include flex(block, row, start, center, null);
