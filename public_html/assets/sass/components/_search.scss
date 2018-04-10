@@ -71,6 +71,9 @@
           font-family: 'Roboto', sans-serif;
           font-size: 1em;
           font-weight: 500;
+          &::after {
+            display: none;
+          }
         }
       }
       animation: fade-in 200ms curve(deceleration) forwards;
