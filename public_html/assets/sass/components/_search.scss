@@ -138,6 +138,9 @@
     &__results {
       position: absolute !important;
       bottom: unset;
+      li {
+        padding: 12px;
+      }
     }
   }
 }
