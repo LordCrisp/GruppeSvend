@@ -1,3 +1,6 @@
+</main>
+<!-- Main Content (end) -->
+
 <!-- Product slider (start) -->
 <section class="product-slider__container">
   <h1>Other products</h1>

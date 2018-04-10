@@ -4,7 +4,6 @@ require "incl/init.php";
 require DOCROOT . "/incl/header.php";
 ?>
 
-<main>
     <section class="home__news--main">
         <figure class="home__news--figure">
             <picture class="home__news--picture">
@@ -23,7 +22,7 @@ require DOCROOT . "/incl/header.php";
         <div class="product-list">
         <?php foreach ($latestProducts as $product) : ?>
             <figure class="product-list__item">
-                <img class="product-list__image" src='assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
+                <img class="product-list__image" src='/assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
                 <figcaption class="product-list__caption">
                     <?=$product['name']?> <br>
                     <a href="details.php?product=<?=$product['id']?>">More ></a>
@@ -33,13 +32,11 @@ require DOCROOT . "/incl/header.php";
         </div>
     </section>
 
-    <!-- Sidebar (start) -->
-    <?php require DOCROOT . "/incl/sidebar.php"; ?>
-    <!-- Sidebar (start) -->
-</main>
-
-
 <?php
+/* - Sidebar (start) - */
+require DOCROOT . "/incl/sidebar.php";
+/* - Sidebar (start) - */
+
 /* - Footer & Body (end) - */
 require DOCROOT . "/incl/footer.php";
 ?>
