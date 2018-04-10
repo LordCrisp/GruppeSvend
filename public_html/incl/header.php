@@ -60,9 +60,7 @@
 				<input type="text" name="search" id="search" placeholder="Search" onkeyup="liveSearch(this.value)" autocomplete="off" />
 				<button type="button" class="header__button" data-search-close="searchForm"><i class="material-icons">close</i></button>
 			</div>
-			<ul class="search__results" id="liveSearch">
-
-			</ul>
+			<ul class="search__results" id="liveSearch"></ul>
 		</form>
 	</div>
 </header>
