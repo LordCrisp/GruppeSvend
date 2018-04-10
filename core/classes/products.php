@@ -20,12 +20,7 @@ class products {
             $id
         );
         $sql = "SELECT * FROM product WHERE id = ?";
-        if($row = $this->db->fetch_array($sql, array($id))) {
-
-            foreach($row[0] as $key => $value) {
-                $this->$key = $value;
-            }
-        }
+        return $this->db->fetch_array($sql, $params);
     }
     public function getProducts() {
         $sql = "SELECT * FROM product";
