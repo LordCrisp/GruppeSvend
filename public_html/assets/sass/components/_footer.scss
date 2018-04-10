@@ -8,7 +8,6 @@ footer {
       display: grid;
       grid-template-columns: 1fr 1fr;
       li {
-        //text-align: center;
         &:nth-child(odd) {
           border-right: 1px solid $lightText;
         }

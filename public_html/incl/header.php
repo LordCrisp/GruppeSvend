@@ -49,10 +49,10 @@
 	<button type="button" class="header__button" data-search-open="searchForm"><i class="material-icons">search</i></button>
 	<div class="header__row--nav">
 		<ul>
-			<li><a href="">home</a></li>
-			<li><a href="">men</a></li>
-			<li><a href="">women</a></li>
-			<li><a href="">collections</a></li>
+			<li><a href="/index.php">home</a></li>
+			<li><a href="/collections.php?men">men</a></li>
+			<li><a href="/collections.php?women">women</a></li>
+			<li><a href="/collections.php?collections">collections</a></li>
 		</ul>
 		<form class="search__form" action="index.php" method="post" id="searchForm">
 			<div class="search__container">
@@ -64,3 +64,6 @@
 	</div>
 </header>
 <!-- Header (end) -->
+
+<!-- Main Content (start) -->
+<main>
