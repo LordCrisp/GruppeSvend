@@ -26,7 +26,18 @@
 
 <!-- Footer (start) -->
 <footer>
-
+    <nav>
+        <ul>
+            <li><a href="/index.php">Home</a></li>
+            <li><a href="/collections.php?mens">Mens</a></li>
+            <li><a href="/collections.php?women">Women</a></li>
+            <li><a href="/collections.php?collections">Collections</a></li>
+            <li><a href="/news.php">News</a></li>
+            <li><a href="/contact.php">Contact</a></li>
+        </ul>
+        <p>Copyright &copy; 2014. All Rights Reserved by <a href="/index.php">Fashion Online</a>.</p>
+    </nav>
+    <img class="footer__logo" src="/assets/img/logo-inverted.jpg">
 </footer>
 <!-- Footer (end) -->
 

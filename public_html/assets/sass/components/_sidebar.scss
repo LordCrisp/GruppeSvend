@@ -14,15 +14,15 @@
     }
     .sidebar__newsletter--input {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      grid-column-gap: 32px;
+      grid-template-columns: 1fr 4fr;
+      grid-column-gap: 12px;
       margin: 16px 0;
       line-height: 26px;
       label {
-        text-align: right;
         color: $lightText;
       }
       input {
+        width: 100%;
         background-color: $backgroundDark;
         border: none;
       }
@@ -48,6 +48,13 @@
     margin-top: 0 !important;
     .sidebar__collections--heading {
       display: none;
+    }
+    .sidebar__newsletter--input {
+      grid-template-columns: 1fr 2fr;
+      grid-column-gap: 32px;
+      label {
+        text-align: right;
+      }
     }
   }
 }

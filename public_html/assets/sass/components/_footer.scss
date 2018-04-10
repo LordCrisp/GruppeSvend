@@ -1,0 +1,53 @@
+footer {
+  padding: 30px;
+  background-color: $dark;
+  color: $lightText;
+  nav {
+    text-align: center;
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      li {
+        //text-align: center;
+        &:nth-child(odd) {
+          border-right: 1px solid $lightText;
+        }
+        a {
+          color: $lightText;
+        }
+
+      }
+    }
+    p {
+      a {
+        color: white;
+      }
+    }
+  }
+}
+
+//Desktop Style
+@media only screen and (min-width: 769px) {
+  footer {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    @include wrapper();
+    nav {
+      text-align: left;
+      ul {
+        display: block;
+        li {
+          border-right: 1px solid $lightText;
+          display: inline-block;
+          padding: 0 8px;
+          &:first-of-type {
+            padding: 0 8px 0 0;
+          }
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+      }
+    }
+  }
+}
