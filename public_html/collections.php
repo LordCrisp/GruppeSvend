@@ -24,16 +24,21 @@ default:
     case "LIST": ?>
 
         <?php foreach ($collections as $collection) : ?>
-        <figure class="product-list__item">
-            <img class="product-list__image" src='/assets/img/collections/small/<?=$collection['thumbnail']?>' alt='Picture of <?=$collection['name']?>'>
-            <figcaption class="product-list__caption">
-				<?=$collection['name']?> <br>
-                <a href="?mode=categories&collection=<?=$collection['id']?>">More ></a>
-            </figcaption>
-        </figure>
+            <figure class="product-list__item">
+                <img class="product-list__image" src='/assets/img/collections/small/<?=$collection['thumbnail']?>' alt='Picture of <?=$collection['name']?>'>
+                <figcaption class="product-list__caption">
+                    <?=$collection['name']?> <br>
+                    <a href="?mode=categories&collection=<?=$collection['id']?>">More ></a>
+                </figcaption>
+            </figure>
         <?php endforeach; ?>
-
-    <?php
+        </div>
+    </section>
+    <!-- Product List (end) -->
+	<?php
+	/* - Sidebar (start) - */
+	require DOCROOT . "/incl/sidebar.php";
+	/* - Sidebar (start) - */
     break;
 
     // LIST OF CATEGORIES
@@ -51,8 +56,13 @@ default:
                     </figcaption>
                 </figure>
             <?php endforeach; ?>
-
-        <?php
+            </div>
+        </section>
+        <!-- Product List (end) -->
+	    <?php
+	    /* - Sidebar (start) - */
+	    require DOCROOT . "/incl/sidebar.php";
+	    /* - Sidebar (start) - */
 
         break;
 
@@ -75,9 +85,16 @@ default:
                 <?php endforeach; ?>
             <?php else : ?>
                 <p>Der er ingen produkter i denne kategori</p>
-            <?php endif; ?>
+            <?php endif;?>
 
+            </div>
+        </section>
+        <!-- Product List (end) -->
         <?php
+        /* - Sidebar (start) - */
+        require DOCROOT . "/incl/sidebar.php";
+        /* - Sidebar (start) - */
+
         break;
 
     // DETAILS OF THE SELECTED PRODUCT
@@ -86,27 +103,28 @@ default:
         $categoryID = $_GET['category'];
         $productID = $_GET['product'];
         $products = new products();
-        $products = $products->getProduct($productID);
+        $products->getProduct($productID);
         ?>
 
-            <?php foreach ($products as $product) : ?>
-                <p><?=$product['name']?></p>
-                <?=$product['thumbnail']?>
-                <p><?=$product['description']?></p>
-            <?php endforeach; ?>
+            <article>
+                <div class="details__top">
+                    <div class="details__top--left">
+                        <h2><?=$products->name?></h2>
+                        <p>Here you find all the details</p>
+                    </div>
+                    <div class="details__top--right">
+                        <p>Collection</p>
+                        <h3><?=$products->collection_name?></h3>
+                    </div>
+                </div>
+                <?=$products->thumbnail?>
+                <p><?=$products->description?></p>
 
+            </article>
         <?php
     }
     //Switch (end)
-    ?>
-        </div>
-    </section>
-    <!-- Product List (end) -->
 
-    <?php
-    /* - Sidebar (start) - */
-    require DOCROOT . "/incl/sidebar.php";
-    /* - Sidebar (start) - */
     /* - Footer & Body (end) - */
     require DOCROOT . "/incl/footer.php";
     ?>
