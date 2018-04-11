@@ -222,8 +222,12 @@
       background-color: transparent !important;
       li {
         width: 100%;
+        padding: 4px;
         ul {
           margin: 0;
+          li {
+            padding: 0 16px 0 0;
+          }
         }
       }
     }
