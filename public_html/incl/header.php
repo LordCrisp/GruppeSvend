@@ -50,8 +50,8 @@
 	<div class="header__row--nav">
 		<ul>
 			<li><a href="/index.php">home</a></li>
-			<li><a href="/collections.php?men">men</a></li>
-			<li><a href="/collections.php?women">women</a></li>
+			<li><a href="/products.php?gender=men">men</a></li>
+			<li><a href="/products.php?gender=women">women</a></li>
 			<li><a href="/collections.php?collections">collections</a></li>
 		</ul>
 		<form class="search__form" method="post" id="searchForm">

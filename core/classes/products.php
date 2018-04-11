@@ -69,6 +69,14 @@ class products {
         $sql = "SELECT * FROM product WHERE deleted = 0 ORDER BY created_at DESC LIMIT 6";
         return $this->db->fetch_array($sql);
     }
+    public function getProductsMen() {
+        $sql = "SELECT * FROM product WHERE deleted = 0 AND gender = 2 ORDER BY created_at";
+        return $this->db->fetch_array($sql);
+    }
+    public function getProductsWomen() {
+        $sql = "SELECT * FROM product WHERE deleted = 0 AND gender = 1 ORDER BY created_at";
+        return $this->db->fetch_array($sql);
+    }
     public function getRandomProducts() {
         $sql = "SELECT * FROM product WHERE deleted = 0 ORDER BY RAND() LIMIT 15";
         return $this->db->fetch_array($sql);

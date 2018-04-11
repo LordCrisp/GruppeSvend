@@ -44,7 +44,7 @@ default:
     // LIST OF CATEGORIES
     case "CATEGORIES":
 
-        $collectionID = $_GET['collection'];
+        $collectionID = isset($_GET['collection']) ? $_GET['collection']: "";
         ?>
 
             <?php foreach ($categories as $category) : ?>
@@ -68,8 +68,8 @@ default:
 
     // LIST OF PRODUCTS UNDER THE SELECTED CATEGORY
     case "PRODUCTS":
-        $collectionID = $_GET['collection'];
-        $categoryID = $_GET['category'];
+	    $collectionID = isset($_GET['collection']) ? $_GET['collection']: "";
+        $categoryID = isset($_GET['category']) ? $_GET['category'] : "";
         $products = new products();
         $products = $products->getCollectionProducts($collectionID, $categoryID);
         ?>

@@ -21,7 +21,7 @@ $searchResultCollection = $products->searchCollections($_POST['search']);
     </li>
   <?php endforeach; ?>
 </ul></li>
-<li><ul class="search__result--categories"> 
+<li><ul class="search__result--categories">
   <p>Categories</p>
   <?php foreach ($searchResultCategory as $category) : ?>
     <li>

@@ -15,7 +15,7 @@
           <img class="product-list__image" src="assets/img/products/<?=$product['thumbnail']?>" alt="Picture of <?=$product['name']?>">
           <figcaption class="product-list__caption">
             <?=$product['name']?><br />
-            <a href="collection.php?mode=details&product=<?=$product['id']?>">More ></a>
+            <a href="collections.php?mode=details&collection=<?=$product['collection_id']?>&category=<?=$product['category_id']?>&product=<?=$product['id']?>">More ></a>
           </figcaption>
         </div>
       </div>
@@ -44,106 +44,16 @@
 </footer>
 <!-- Footer (end) -->
 
-<!-- Scripts (start) -->
-<!-- Header script (start) -->
-<script>
-var headerButtons = document.getElementsByClassName('header__button');
-for (var z = 0; z < headerButtons.length; z++) {
-  var elem = headerButtons[z];
-  elem.onclick = function(e) {
-    const elem = e.target;
-    if (elem.dataset.menuOpen) {
-      var target = elem.dataset.menuOpen;
-      var menu = document.getElementById(target);
-      if (!menu.classList.contains('active')) {
-        menu.classList.add('active');
-      }
-    } else if (elem.dataset.menuClose) {
-      var target = elem.dataset.menuClose;
-      var menu = document.getElementById(target);
-      if (menu.classList.contains('active')) {
-        menu.classList.replace('active', 'closing');
-        setTimeout(function() {
-          menu.classList.remove('closing');
-        }, 400);
-      }
-    }
-    if (elem.dataset.searchOpen) {
-      var target = elem.dataset.searchOpen;
-      var search = document.getElementById(target);
-      if (!search.classList.contains('active')) {
-        search.classList.add('active');
-      }
-    } else if (elem.dataset.searchClose) {
-      var target = elem.dataset.searchClose;
-      var search = document.getElementById(target);
-      if (search.classList.contains('active')) {
-        search.classList.replace('active', 'closing');
-        setTimeout(function() {
-          search.classList.remove('closing');
-        }, 400);
-      }
-    }
-  }
-}
-</script>
-<!-- Menu script (end) -->
-<!-- Swiper scripts (start) -->
+<!-------- Scripts (start) -------->
+
+<!-- Menu script -->
+<script src="/assets/js/menu.js"></script>
+
+<!-- Swiper scripts (CDN & Setup) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.2/js/swiper.min.js"></script>
-<script type="text/javascript">
-  var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 5,
-    spaceBetween: 18,
-    navigation: {
-      nextEl: '.product-slider__button--next',
-      prevEl: '.product-slider__button--prev',
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 12,
-      },
-      480: {
-        slidesPerView: 2,
-        spaceBetween: 12,
-      },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 14,
-      },
-      960: {
-        slidesPerView: 4,
-        spaceBetween: 16,
-      }
-    },
-  });
-</script>
-<!-- Swiper scripts (end) -->
-<!-- Search script (start) -->
-<script>
-const liveSearchResults = document.getElementById('liveSearch');
-function liveSearch(str) {
-  if (str != 0) {
-    loadDoc(str);
-  } else {
-    liveSearchResults.innerHTML = '';
-  }
-}
-function loadDoc(str) {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      if (this.responseText != '') {
-        liveSearchResults.innerHTML = this.responseText;
-      } else {
-        liveSearchResults.innerHTML = '<li class="noresult">No match found :(</li>';
-      }
-    }
-  };
-  xhttp.open("POST", "incl/search.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("search=" + str);
-}
-</script>
-<!-- Search script (end) -->
-<!-- Scripts (end) -->
+<script src="/assets/js/swiper_setup.js"></script>
+
+<!-- Search script -->
+<script src="/assets/js/searchbar.js"></script>
+
+<!--------- Scripts (end) --------->
