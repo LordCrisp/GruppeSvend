@@ -15,7 +15,7 @@
           <img class="product-list__image" src="assets/img/products/<?=$product['thumbnail']?>" alt="Picture of <?=$product['name']?>">
           <figcaption class="product-list__caption">
             <?=$product['name']?><br />
-            <a href="collection.php?mode=details&product=<?=$product['id']?>">More ></a>
+            <a href="collections.php?mode=details&collection=<?=$product['collection_id']?>&category=<?=$product['category_id']?>&product=<?=$product['id']?>">More ></a>
           </figcaption>
         </div>
       </div>

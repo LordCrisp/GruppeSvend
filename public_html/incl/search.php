@@ -14,7 +14,7 @@ $searchResultCollection = $products->searchCollections($_POST['search']);
     </figure>
     <figcaption>
       <p><?=$collection['name']?></p>
-      <a href="details.php?product=<?=$collection['id']?>">More ></a>
+      <a href="collections.php?mode=categories&collection=<?=$collection['id']?>">More ></a>
     </figcaption>
   </li>
 <?php endforeach; ?>
@@ -25,7 +25,7 @@ $searchResultCollection = $products->searchCollections($_POST['search']);
     </figure>
     <figcaption>
       <p><?=$category['name']?></p>
-      <a href="details.php?product=<?=$category['id']?>">More ></a>
+      <a href="collections.php?mode=products&category=<?=$category['id']?>">More ></a>
     </figcaption>
   </li>
 <?php endforeach; ?>
@@ -36,7 +36,7 @@ $searchResultCollection = $products->searchCollections($_POST['search']);
     </figure>
     <figcaption>
       <p><?=$product['name']?></p>
-      <a href="collection.php?mode=details&product=<?=$product['id']?>">More ></a>
+      <a href="collections.php?mode=details&collection=<?=$product['collection_id']?>&category=<?=$product['category_id']?>&product=<?=$product['id']?>">More ></a>
     </figcaption>
   </li>
 <?php endforeach; ?>
