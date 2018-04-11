@@ -10,9 +10,7 @@ require "incl/header.php";
       <h1>Contact us</h1>
       <small>Write us a message here</small>
     </div>
-    <div>
-
-    </div>
+    <div></div>
   </header>
   <form>
     <div class="form__group">
@@ -38,7 +36,7 @@ require "incl/header.php";
     </ul>
   </article>
   <div>
-    
+
   </div>
 </main>
 
