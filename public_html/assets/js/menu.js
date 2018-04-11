@@ -22,14 +22,19 @@ for (var z = 0; z < headerButtons.length; z++) {
         if (elem.dataset.searchOpen) {
             var target = elem.dataset.searchOpen;
             var search = document.getElementById(target);
+            var searchInput = search.querySelector('input[type=text]');
             if (!search.classList.contains('active')) {
                 search.classList.add('active');
+                searchInput.focus();
             }
         } else if (elem.dataset.searchClose) {
             var target = elem.dataset.searchClose;
             var search = document.getElementById(target);
+            var searchInput = search.querySelector('input[type=text]');
             if (search.classList.contains('active')) {
                 search.classList.replace('active', 'closing');
+                searchInput.value = '';
+                liveSearch('');
                 setTimeout(function() {
                     search.classList.remove('closing');
                 }, 400);
