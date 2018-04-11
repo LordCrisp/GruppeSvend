@@ -81,12 +81,12 @@ class products {
         $sql = "SELECT * FROM product WHERE deleted = 0 ORDER BY RAND() LIMIT 15";
         return $this->db->fetch_array($sql);
     }
-    public function getCollectionProducts($collection, $category) {
-        $params = array(
-            $collection,
-            $category
+    public function getProductsByCategory($collection, $category) {
+    	$params = array(
+    		'%'.$collection.'%',
+		    $category
         );
-        $sql = "SELECT * FROM product WHERE collection_id = ? AND category_id = ?";
+        $sql = "SELECT * FROM product WHERE collection_id LIKE ? AND category_id = ?";
         return $this->db->fetch_array($sql, $params);
     }
     public function delete($id){
