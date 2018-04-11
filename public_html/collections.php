@@ -10,9 +10,8 @@ $mode = isset($_REQUEST["mode"]) && !empty($_REQUEST["mode"]) ? $_REQUEST["mode"
 
 //Insert Header
 require DOCROOT . "/incl/header.php";?>
-<!-- Product List (start) -->
-<section>
-    <div class="product-list">
+
+
 
 <?php
 /* ---------- */
@@ -22,7 +21,11 @@ switch(strtoupper($mode)) {
 // LIST OF COLLECTIONS
 default:
     case "LIST": ?>
-
+<!-- Main Content (start) -->
+<main>
+<!-- Product List (start) -->
+<section>
+    <div class="product-list">
         <?php foreach ($collections as $collection) : ?>
             <figure class="product-list__item">
                 <img class="product-list__image" src='/assets/img/collections/small/<?=$collection['thumbnail']?>' alt='Picture of <?=$collection['name']?>'>
@@ -38,15 +41,21 @@ default:
 	<?php
 	/* - Sidebar (start) - */
 	require DOCROOT . "/incl/sidebar.php";
-	/* - Sidebar (start) - */
-    break;
+	/* - Sidebar (start) - */?>
+</main>
+    <!-- Main Content (end) -->
+	<?php break;
 
     // LIST OF CATEGORIES
     case "CATEGORIES":
 
         $collectionID = isset($_GET['collection']) ? $_GET['collection']: "";
         ?>
-
+<!-- Main Content (start) -->
+<main>
+    <!-- Product List (start) -->
+    <section>
+        <div class="product-list">
             <?php foreach ($categories as $category) : ?>
                 <figure class="product-list__item">
                     <img class="product-list__image" src='/assets/img/products/<?=$category['thumbnail']?>' alt='Picture of <?=$category['name']?>'>
@@ -61,10 +70,11 @@ default:
         <!-- Product List (end) -->
 	    <?php
 	    /* - Sidebar (start) - */
-	    require DOCROOT . "/incl/sidebar.php";
-	    /* - Sidebar (start) - */
-
-        break;
+        require DOCROOT . "/incl/sidebar.php";
+        /* - Sidebar (start) - */?>
+    </main>
+    <!-- Main Content (end) -->
+        <?php break;
 
     // LIST OF PRODUCTS UNDER THE SELECTED CATEGORY
     case "PRODUCTS":
@@ -74,6 +84,11 @@ default:
         $products = $products->getProductsByCategory($collectionID, $categoryID);
 
          if (!empty($products)) : ?>
+    <!-- Main Content (start) -->
+    <main>
+        <!-- Product List (start) -->
+        <section>
+            <div class="product-list">
                 <?php foreach ($products as $product) : ?>
                     <figure class="product-list__item">
                         <img class="product-list__image" src='assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
@@ -93,9 +108,10 @@ default:
         <?php
         /* - Sidebar (start) - */
         require DOCROOT . "/incl/sidebar.php";
-        /* - Sidebar (start) - */
-
-        break;
+        /* - Sidebar (start) - */?>
+    </main>
+    <!-- Main Content (end) -->
+        <?php break;
 
     // DETAILS OF THE SELECTED PRODUCT
     case "DETAILS":
@@ -106,7 +122,7 @@ default:
         $products->getProduct($productID);
         ?>
 
-            <article>
+            <article class="details__main">
                 <div class="details__top">
                     <div class="details__top--left">
                         <h2><?=$products->name?></h2>
