@@ -57,7 +57,7 @@
           font-weight: 500;
         }
         li {
-          @include flex(block, row ,start, center, null);
+          @include flex(block, row, start, center, null);
           width: 100%;
           // padding: 0 56px 0 0;
           @include transition(280ms, curve());
@@ -98,52 +98,11 @@
             }
           }
           &:hover {
-            background-color: rgba(0,0,0,0.05);
+            background-color: rgba(0, 0, 0, 0.05);
           }
         }
 
       }
-    //   position: relative;
-    //   @include flex(block, row, start, center, null);
-    //   width: calc(100% - 48px);
-    //   @include border-radius(4px);
-    //   margin: 2px 0 !important;
-    //   background-color: $background;
-    //   overflow: hidden;
-    //   box-shadow: 0 4px 20px 0 rgba($dark, 0.4);
-    //   opacity: 0;
-      // figure {
-      //   height: 112px;
-      //   margin: 0;
-      //   img {
-      //     width: auto;
-      //     height: 112px;
-      //   }
-      // }
-      // figcaption {
-      //   position: relative;
-      //   @include flex(block, column, center, start, null);
-      //   width: 100%;
-      //   padding: 12px;
-      //   p {
-      //     display: block;
-      //     margin: 0 0 0.5em 0;
-      //     color: $dark;
-      //     font-size: 1.2em;
-      //     font-weight: 400;
-      //   }
-      //   a {
-      //     display: block;
-      //     padding: 0;
-      //     color: $accent;
-      //     font-family: 'Roboto', sans-serif;
-      //     font-size: 1em;
-      //     font-weight: 500;
-      //     &::after {
-      //       display: none;
-      //     }
-      //   }
-      // }
 
       animation: fade-in 200ms curve(deceleration) forwards;
       &.noresult {

@@ -71,9 +71,9 @@ default:
 	    $collectionID = isset($_GET['collection']) ? $_GET['collection']: "";
         $categoryID = isset($_GET['category']) ? $_GET['category'] : "";
         $products = new products();
-        $products = $products->getCollectionProducts($collectionID, $categoryID);
-        ?>
-            <?php if (!empty($products)) : ?>
+        $products = $products->getProductsByCategory($collectionID, $categoryID);
+
+         if (!empty($products)) : ?>
                 <?php foreach ($products as $product) : ?>
                     <figure class="product-list__item">
                         <img class="product-list__image" src='assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
