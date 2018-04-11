@@ -31,58 +31,121 @@
   &__results {
     position: absolute;
     bottom: -64px;
-    left: 24px;
-    width: calc(100% - 48px);
+    left: 12px;
+    width: calc(100% - 24px) !important;
+    @include border-radius(16px);
+    max-height: 90vh;
+    overflow-y: scroll;
     font-family: 'Roboto', sans-serif;
-    z-index: 99999999999999999999;
+    background-color: darken($background, 5%);
     li {
-      position: relative;
-      @include flex(block, row, start, center, null);
-      width: calc(100% - 48px);
-      @include border-radius(4px);
-      margin: 2px 0 !important;
-      background-color: $background;
-      overflow: hidden;
-      box-shadow: 0 4px 20px 0 rgba($dark, 0.4);
-      opacity: 0;
-      figure {
-        height: 112px;
-        margin: 0;
-        img {
-          width: auto;
-          height: 112px;
-        }
-      }
-      figcaption {
+      ul {
         position: relative;
-        @include flex(block, column, center, start, null);
         width: 100%;
-        padding: 12px;
+        @include border-radius(16px);
+        margin: 8px 0;
+        background-color: $background;
+        box-shadow: 0 4px 20px 0 rgba($dark, 0.4);
+        overflow: hidden;
         p {
-          display: block;
-          margin: 0 0 0.5em 0;
-          color: $dark;
-          font-size: 1.2em;
-          font-weight: 400;
-        }
-        a {
-          display: block;
-          padding: 0;
-          color: $accent;
-          font-family: 'Roboto', sans-serif;
-          font-size: 1em;
+          position: relative;
+          @include flex(block, row, center, center, null);
+          width: 100%;
+          padding: 1em;
+          margin: 0;
+          color: rgba($dark, 0.8);
           font-weight: 500;
-          &::after {
-            display: none;
+        }
+        li {
+          @include flex(block, row ,start, center, null);
+          width: 100%;
+          // padding: 0 56px 0 0;
+          @include transition(280ms, curve());
+          figure {
+            margin: 0;
+            min-width: 100px;
+            overflow: hidden;
+            img {
+              position: relative;
+              display: block;
+              width: 100px;
+              height: auto;
+            }
+          }
+          figcaption {
+            position: relative;
+            @include flex(block, column, center, start, null);
+            height: 100%;
+            padding: 0 0 0 16px;
+            p {
+              width: unset !important;
+              padding: 0;
+              color: $dark;
+              font-weight: 400;
+              text-align: left;
+              white-space: nowrap;
+            }
+            a {
+              padding: 0;
+              color: $accent;
+              font-family: 'Roboto', sans-serif;
+              font-weight: 500;
+              font-size: 1em;
+              white-space: nowrap;
+              &::after {
+                display: none;
+              }
+            }
+          }
+          &:hover {
+            background-color: rgba(0,0,0,0.05);
           }
         }
+
       }
+    //   position: relative;
+    //   @include flex(block, row, start, center, null);
+    //   width: calc(100% - 48px);
+    //   @include border-radius(4px);
+    //   margin: 2px 0 !important;
+    //   background-color: $background;
+    //   overflow: hidden;
+    //   box-shadow: 0 4px 20px 0 rgba($dark, 0.4);
+    //   opacity: 0;
+      // figure {
+      //   height: 112px;
+      //   margin: 0;
+      //   img {
+      //     width: auto;
+      //     height: 112px;
+      //   }
+      // }
+      // figcaption {
+      //   position: relative;
+      //   @include flex(block, column, center, start, null);
+      //   width: 100%;
+      //   padding: 12px;
+      //   p {
+      //     display: block;
+      //     margin: 0 0 0.5em 0;
+      //     color: $dark;
+      //     font-size: 1.2em;
+      //     font-weight: 400;
+      //   }
+      //   a {
+      //     display: block;
+      //     padding: 0;
+      //     color: $accent;
+      //     font-family: 'Roboto', sans-serif;
+      //     font-size: 1em;
+      //     font-weight: 500;
+      //     &::after {
+      //       display: none;
+      //     }
+      //   }
+      // }
+
       animation: fade-in 200ms curve(deceleration) forwards;
-      @for $i from 2 through 10 {
-        &:nth-child(#{$i}) {
-          animation-delay: $i * 20ms;
-        }
-      }
       &.noresult {
         @include flex(block, row, center, center, null);
         padding: 16px;
@@ -150,9 +213,18 @@
       bottom: unset;
       left: auto;
       right: 0;
+      display: grid !important;
+      grid-template-columns: repeat(3, auto) !important;
+      width: unset !important;
+      flex-direction: unset !important;
+      justify-content: unset !important;
+      align-items: unset !important;
+      background-color: transparent !important;
       li {
         width: 100%;
-        padding: 12px;
+        ul {
+          margin: 0;
+        }
       }
     }
   }
