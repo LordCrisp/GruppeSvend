@@ -14,11 +14,11 @@ $searchResultCollection = $products->searchCollections($_POST['search']);
   <?php foreach ($searchResultCollection as $collection) : ?>
     <li>
       <figure>
-        <img src="assets/img/collections/big/<?=$collection['thumbnail']?>" alt="Picture of <?=$collection['name']?>" />
+        <img src="/assets/img/collections/big/<?=$collection['thumbnail']?>" alt="Picture of <?=$collection['name']?>" />
       </figure>
       <figcaption>
         <p><?=$collection['name']?></p>
-        <a href="details.php?product=<?=$collection['id']?>">More ></a>
+        <a href="/collections.php?mode=categories&collection=<?=$collection['id']?>">More ></a>
       </figcaption>
     </li>
   <?php endforeach; ?>
@@ -32,11 +32,11 @@ $searchResultCollection = $products->searchCollections($_POST['search']);
   <?php foreach ($searchResultCategory as $category) : ?>
     <li>
       <figure>
-        <img src="assets/img/categories/<?=$category['thumbnail']?>" alt="Picture of <?=$category['name']?>" />
+        <img src="/assets/img/categories/<?=$category['thumbnail']?>" alt="Picture of <?=$category['name']?>" />
       </figure>
       <figcaption>
         <p><?=$category['name']?></p>
-        <a href="details.php?product=<?=$category['id']?>">More ></a>
+        <a href="/collections.php?mode=products&category=<?=$category['id']?>>">More ></a>
       </figcaption>
     </li>
   <?php endforeach; ?>
@@ -50,11 +50,11 @@ $searchResultCollection = $products->searchCollections($_POST['search']);
   <?php foreach ($searchResult as $product) : ?>
     <li>
       <figure>
-        <img src="assets/img/products/<?=$product['thumbnail']?>" alt="Picture of <?=$product['name']?>" />
+        <img src="/assets/img/products/<?=$product['thumbnail']?>" alt="Picture of <?=$product['name']?>" />
       </figure>
       <figcaption>
         <p><?=$product['name']?></p>
-        <a href="collection.php?mode=details&product=<?=$product['id']?>">More ></a>
+        <a href="/collections.php?mode=details&product=<?=$product['id']?>">More ></a>
       </figcaption>
     </li>
   <?php endforeach; ?>
