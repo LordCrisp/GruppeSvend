@@ -1,0 +1,33 @@
+$headerGradientCenter: #B7A398;
+$headerGradientOuter: #95817A;
+
+.contact {
+  &__container {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 45% auto;
+    @include wrapper();
+    header {
+      grid-column: 3 / 1;
+      width: 100%;
+      background: radial-gradient($headerGradientCenter, $headerGradientOuter);
+    }
+    form {
+      grid-column: 3 / 1;
+      width: 100%;
+    }
+    article {
+      width: 100%;
+    }
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .contact {
+    &__container {
+      form {
+        grid-column: 1;
+      }
+    }
+  }
+}

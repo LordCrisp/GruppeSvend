@@ -1,5 +1,39 @@
 <?php
-require "incl/init.php";
+require  "incl/init.php";
 /* - Head, Header & Body (start) - */
-require DOCROOT . "incl/header.php";
+require "incl/header.php";
+?>
+
+<main class="contact__container">
+  <header>
+    <h1>Contact us</h1>
+    <small>Write us a message</small>
+  </header>
+  <form>
+    <div class="form__group">
+      <input type="text" name="name" id="name" placeholder="NAME" />
+    </div>
+    <div class="form__group">
+      <input type="email" name="email" id="email" placeholder="EMAIL" />
+    </div>
+    <div class="form__group">
+      <textarea name="message" id="message" placeholder="MESSAGE"></textarea>
+    </div>
+    <div class="form__group--submit">
+      <button type="submit">SEND US THE MESSAGE</button>
+    </div>
+  </form>
+  <article>
+    <h2>Fashion Online</h2>
+    <ul>
+      <li>adress: lindholm brygge 9</li>
+      <li>zipcode: 9400 norresundby</li>
+      <li>country: denmark</li>
+      <li>phone: +45 12 34 56 78</li>
+    </ul>
+  </article>
+</main>
+
+<?php
+require "incl/footer.php";
 ?>

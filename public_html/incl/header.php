@@ -29,7 +29,7 @@
 		<ul>
 			<li><a href="">find retailer</a></li>
 			<li><a href="">news</a></li>
-			<li><a href="">contact</a></li>
+			<li><a href="contact.php">contact</a></li>
 		</ul>
 		<form class="header__signin-form" action="" method="post">
 			<p>sign in</p>
