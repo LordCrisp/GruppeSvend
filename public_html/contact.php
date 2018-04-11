@@ -11,7 +11,7 @@ require "incl/header.php";
       <small>Write us a message here</small>
     </div>
     <div>
-      
+
     </div>
   </header>
   <form>
@@ -37,6 +37,9 @@ require "incl/header.php";
       <li>phone: +45 12 34 56 78</li>
     </ul>
   </article>
+  <div>
+    
+  </div>
 </main>
 
 <?php
