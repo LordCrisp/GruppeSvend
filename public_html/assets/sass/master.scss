@@ -12,6 +12,7 @@
 @import "components/header";
 @import "components/sidebar";
 @import "components/products";
+@import "components/details";
 @import "components/search";
 @import "components/product-slider";
 @import "components/footer";
@@ -47,6 +48,3 @@ a {
   text-decoration: none;
 }
 
-body {
-  margin: 0;
-}

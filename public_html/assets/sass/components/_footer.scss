@@ -30,7 +30,6 @@ footer {
   footer {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    @include wrapper();
     nav {
       text-align: left;
       ul {

@@ -4,10 +4,16 @@
        url('../fonts/bebasWebfont.woff') format('woff');
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: Bebas, sans-serif !important;
+  font-family: Bebas, sans-serif;
   word-spacing: 0.1em;
 }
 
 hr {
   border: 0.5px solid lightgray;
+}
+.details__top--right {
+  font-family: 'Libre Baskerville', serif;
+  h3 {
+    font-family: 'Libre Baskerville', serif;
+  }
 }

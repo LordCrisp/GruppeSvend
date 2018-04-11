@@ -3,7 +3,8 @@ require "incl/init.php";
 /* - Head, Header & Body (start) - */
 require DOCROOT . "/incl/header.php";
 ?>
-
+<!-- Main Content (start) -->
+<main>
     <section class="home__news--main">
         <figure class="home__news--figure">
             <picture class="home__news--picture">
@@ -35,8 +36,11 @@ require DOCROOT . "/incl/header.php";
 <?php
 /* - Sidebar (start) - */
 require DOCROOT . "/incl/sidebar.php";
-/* - Sidebar (start) - */
+/* - Sidebar (start) - */?>
+</main>
+<!-- Main Content (end) -->
 
+<?php
 /* - Footer & Body (end) - */
 require DOCROOT . "/incl/footer.php";
 ?>
