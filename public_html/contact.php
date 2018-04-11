@@ -4,10 +4,15 @@ require  "incl/init.php";
 require "incl/header.php";
 ?>
 
-<main class="contact__container">
+<main class="alt__container">
   <header>
-    <h1>Contact us</h1>
-    <small>Write us a message</small>
+    <div>
+      <h1>Contact us</h1>
+      <small>Write us a message here</small>
+    </div>
+    <div>
+      
+    </div>
   </header>
   <form>
     <div class="form__group">
