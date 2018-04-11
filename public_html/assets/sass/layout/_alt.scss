@@ -15,18 +15,25 @@
       width: 100%;
       position: relative;
       background: radial-gradient($headerGradientInner, $headerGradientOuter);
-      h1 {
-        padding: 0.8em 0.6em 0.4em 0.6em;
-        margin: 0;
-        font-size: 1.6em;
-        font-weight: 400;
-      }
-      small {
-        display: block;
-        padding: 0.8em 4em 0.8em 1.2em;
-        background: linear-gradient(60deg , $accent 0%, $accent 89.9%, transparent 90%, transparent 100%);
-        color: $background;
-        font-weight: 500;
+      div:nth-child(1) {
+        position: relative;
+        @include flex(block, column, space-between, start, null);
+        width: 100%;
+        h1 {
+          padding: 0.8em 0.6em 0.4em 0.6em;
+          margin: 0;
+          font-size: 1.6em;
+          font-weight: 400;
+          white-space: nowrap;
+        }
+        small {
+          display: block;
+          padding: 0.8em 4em 0.8em 1.2em;
+          background: linear-gradient(60deg , $accent 0%, $accent 89.9%, transparent 90%, transparent 100%);
+          color: $background;
+          font-weight: 500;
+          white-space: nowrap;
+        }
       }
     }
     >:nth-child(2) {
@@ -45,6 +52,19 @@
 @media only screen and (min-width: 1200px) {
   .alt {
     &__container {
+      header {
+        div:nth-child(1) {
+          grid-column: 1 / 2;
+          width: 100%;
+          small {
+            width: 100%;
+          }
+        }
+        div:nth-child(2) {
+          grid-column: 2 / 3;
+          width: 100%;
+        }
+      }
       >:nth-child(2) {
         grid-column: 1 / 2;
       }
