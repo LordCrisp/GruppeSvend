@@ -20,6 +20,7 @@
         margin: 0;
         font-size: 1.6em;
         font-weight: 400;
+        white-space: nowrap;
       }
       small {
         display: block;
@@ -27,6 +28,7 @@
         background: linear-gradient(60deg , $accent 0%, $accent 89.9%, transparent 90%, transparent 100%);
         color: $background;
         font-weight: 500;
+        white-space: nowrap;
       }
     }
     >:nth-child(2) {
