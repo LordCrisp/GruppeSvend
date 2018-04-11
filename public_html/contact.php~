@@ -1,9 +1,0 @@
-<?php
-require  "incl/init.php";
-/* - Head, Header & Body (start) - */
-require "incl/header.php";
-?>
-
-<?php
-require "incl/footer.php";
-?>

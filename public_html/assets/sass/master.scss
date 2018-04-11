@@ -13,6 +13,7 @@
 @import "components/header";
 @import "components/sidebar";
 @import "components/products";
+@import "components/contact";
 @import "components/details";
 @import "components/search";
 @import "components/product-slider";
@@ -49,3 +50,6 @@ a {
   text-decoration: none;
 }
 
+body {
+  margin: 0 auto;
+}
