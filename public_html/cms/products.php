@@ -72,10 +72,10 @@ break;
 <?php 
     if (isset($_GET['id'])) {
         $product->getProduct($_GET['id']);
+        $category->getCategory($product->category_id);
+        $collection->getCollection($product->collection_id);
     }
-    $collection->getCollection($product->collection_id);
     $collections = $collections->getCollections();
-    $category->getCategory($product->category_id);
 	$categories = $categories->getCategories();
 ?>
     <form action="?mode=save" method="POST" enctype="multipart/form-data">
