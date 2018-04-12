@@ -31,7 +31,10 @@
         resize: none;
       }
       button {
+        cursor: pointer;
         width: unset;
+        padding-right: 16px;
+        padding-left:  16px;
         font-family: Bebas, 'Roboto', sans-serif;
         font-weight: 400;
         word-spacing: 0.2em;
