@@ -12,7 +12,7 @@ require "incl/header.php";
     </div>
     <div></div>
   </header>
-  <form class="contact__form">
+  <form class="contact__form" method="post" action="contact.php">
     <div class="form__group">
       <input type="text" name="name" id="name" placeholder="NAME" />
     </div>
