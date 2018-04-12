@@ -9,6 +9,8 @@ class products {
     public $description;
     public $catgory;
     public $collection;
+    public $collection_id;
+    public $cateogory_id;
     public $gender;
 
     public function __construct() {
@@ -35,7 +37,9 @@ class products {
 		    $this->thumbnail = $row['thumbnail'];
 		    $this->description = $row['description'];
 		    $this->gender = $row['gender'];
-		    $this->collection_name = $row['collection_name'];
+            $this->collection_name = $row['collection_name'];
+            $this->collection_id = $row['collection_id'];
+            $this->category_id = $row['category_id'];
 	    }
     }
 

@@ -8,7 +8,9 @@ require "incl/cms_init.php";
 <?php
 $product = new products();
 $collections = new collections();
+$collection = new collections();
 $categories = new categories();
+$category = new categories();
 
 $mode = isset($_REQUEST["mode"]) && !empty($_REQUEST["mode"]) ? $_REQUEST["mode"] : "";
 
@@ -18,9 +20,11 @@ switch(strtoupper($mode)) {
     default:
     case "LIST":
     require DOCROOT . "/cms/incl/header.php";
-    $sql = "SELECT product.id, product.name AS productName, product.category_id, product.collection_id, product.gender, product.created_at, product.deleted, category.name AS categoryName
+    $sql = "SELECT collection.name AS collectionName, gender.gender, gender.id, product.id, product.name AS productName, product.category_id, product.collection_id, product.gender, product.created_at, product.deleted, category.name AS categoryName
     FROM product
     JOIN category ON product.category_id = category.id
+    JOIN collection ON product.collection_id = collection.id
+    JOIN gender ON product.gender = gender.id
     WHERE deleted = 0
     ORDER BY created_at ASC";
     $products = $db->fetch_array($sql);
@@ -32,6 +36,8 @@ switch(strtoupper($mode)) {
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Category</th>
+                <th scope="col">Collection</th>
+                <th scope="col">Gender</th>
             </thead>
             <?php foreach ($products as $product) : ?>
                 <tbody>
@@ -39,6 +45,8 @@ switch(strtoupper($mode)) {
                         <td><?=$product['id']?></td>
                         <td><?=$product['productName']?></td>
                         <td><?=$product['categoryName']?></td>
+                        <td><?=$product['collectionName']?></td>
+                        <td><?=$product['gender']?></td>
                         <td><a href="?mode=edit&id=<?=$product['id']?>">Edit</a></td>
                         <td><a href="?mode=delete&id=<?=$product['id']?>"><span class="product-delete" id="<?=$product['productName']?>">Slet</span></a></td>
                     </tr>
@@ -62,11 +70,13 @@ break;
 ?>
 <!-- Form (start) -->
 <?php 
-    $collections = $collections->getCollections();
-	$categories = $categories->getCategories();
     if (isset($_GET['id'])) {
         $product->getProduct($_GET['id']);
     }
+    $collection->getCollection($product->collection_id);
+    $collections = $collections->getCollections();
+    $category->getCategory($product->category_id);
+	$categories = $categories->getCategories();
 ?>
     <form action="?mode=save" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?=$product->id?>">
@@ -81,8 +91,12 @@ break;
         <div class="form-group">
             <label for="collection">Collection</label>
             <select name="collection">
-                <?php foreach ($collections as $collection) : ?>
-                    <option value="<?=$collection['id']?>"><?=$collection['name']?></option>
+                <?php foreach ($collections as $arrvalue) : ?>
+                    <?php if ($arrvalue['id'] !== $collection->id) : ?>
+                        <option value="<?=$arrvalue['id']?>"><?=$arrvalue['name']?></option>
+                    <?php else : ?>
+                        <option selected value="<?=$collection->id?>"><?=$collection->name?></option>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -96,8 +110,12 @@ break;
         <div class="form-group">
             <label for="category">Category</label>
             <select name="category">
-                <?php foreach ($categories as $category) : ?>
-                    <option value="<?=$category['id']?>"><?=$category['name']?></option>
+                <?php foreach ($categories as $arrvalue) : ?>
+                    <?php if ($arrvalue['id'] !== $category->id) : ?>
+                        <option value="<?=$arrvalue['id']?>"><?=$arrvalue['name']?></option>
+                    <?php else : ?>
+                        <option selected value="<?=$category->id?>"><?=$category->name?></option>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </select>
         </div>

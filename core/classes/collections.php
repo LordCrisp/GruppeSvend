@@ -8,6 +8,18 @@ class collections {
         global $db;
         $this->db = $db;
     }
+    public function getCollection($id) {
+        $sql = "SELECT * FROM collection WHERE id = $id";
+        $row = $this->db->fetch_array($sql);
+
+	    if (count($row)){
+		    $row = call_user_func_array('array_merge', $row);
+
+		    $this->id = $row['id'];
+		    $this->name = $row['name'];
+		    $this->thumbnail = $row['thumbnail'];
+	    }
+    }
     public function getCollections() {
         $sql = "SELECT * FROM collection";
         return $this->db->fetch_array($sql);
