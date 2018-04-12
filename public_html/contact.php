@@ -46,6 +46,7 @@ require "incl/header.php";
         <td>+45 12 34 56 78</td>
       </tr>
     </table>
+    <div class="contact__gmaps"></div>
   </article>
   <div>
 
