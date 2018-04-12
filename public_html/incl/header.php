@@ -32,16 +32,20 @@
 			<li><a href="news.php">news</a></li>
 			<li><a href="contact.php">contact</a></li>
 		</ul>
-		<form class="header__signin-form" action="" method="post">
-			<p>sign in</p>
-			<div class="form__group">
-				<input type="text" name="username" placeholder="Username" />
-			</div>
-			<div class="form__group">
-				<input type="password" name="password" placeholder="Password" />
-			</div>
-			<button type="submit">Go</button>
-		</form>
+		<?php if ($auth->auth_user_id) : ?>
+			<li><a href="/cms/products.php">Admin</a></li>
+		<?php else : ?>	
+			<form class="header__signin-form" method="post">
+				<p>sign in</p>
+				<div class="form__group">
+					<input type="text" name="login_user_name" placeholder="Username" />
+				</div>
+				<div class="form__group">
+					<input type="password" name="login_password" placeholder="Password" />
+				</div>
+				<button name="login_submit" type="submit">Go</button>
+			</form>
+		<?php endif; ?>
 	</div>
 	<button type="button" class="header__button" data-menu-open="secondMenu"><i class="material-icons">menu</i></button>
 	<figure class="header__logo-container">
