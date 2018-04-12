@@ -53,8 +53,6 @@ require "incl/header.php";
   </div>
 </main>
 
-
-
 <script>
   function initMap() {
     var fashionOnline = {lat: 57.066650, lng: 9.899123};
