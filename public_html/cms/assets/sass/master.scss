@@ -1,0 +1,46 @@
+@import "../../../assets/sass/helpers";
+
+//// Style:
+@import "../../../assets/sass/style/colors";
+@import "../../../assets/sass/style/typography";
+
+//// Layout:
+@import "layout/admin";
+
+//// Components:
+
+//// General styles
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: auto;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+*::selection {
+  // Selection background color here
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  width: 100% !important;
+  margin: 0 !important;
+}
