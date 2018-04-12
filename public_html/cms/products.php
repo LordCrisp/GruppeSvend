@@ -16,7 +16,8 @@ switch(strtoupper($mode)) {
     $sql = "SELECT product.id, product.name AS productName, product.category_id, product.collection_id, product.gender, product.created_at, product.deleted, category.name AS categoryName
     FROM product
     JOIN category ON product.category_id = category.id
-    WHERE deleted = 0";
+    WHERE deleted = 0
+    ORDER BY created_at ASC";
     $products = $db->fetch_array($sql);
 ?>
     <div class="container">
@@ -117,7 +118,8 @@ break;
 
     //  SAVE/UPDATE PRODUCT
     case "SAVE":
-    require DOCROOT . "/cms/incl/header.php";
+
+    $product->id = $_POST['id'];
     $product->name = $_POST['name'];
     $product->description = $_POST['description'];
     $product->collection = $_POST['collection'];
@@ -125,8 +127,10 @@ break;
     $product->gender = $_POST['gender'];
     
     if (!empty($_POST['id'])) {
-        $product->update();
+        $product->save($product->id, 'assets/img/products/');
     } else {
         $product->save(0, 'assets/img/products/');
     }
+
+    header("Location: products.php");
 }

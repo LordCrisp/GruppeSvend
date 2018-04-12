@@ -67,7 +67,7 @@ break;
                     <img class="product-list__image" src='/assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
                     <figcaption class="product-list__caption">
                         <?=$product['name']?> <br>
-                        <a href="?mode=categories&collection=<?=$product['id']?>">More ></a>
+                        <a href="/collections.php?mode=categories&collection=<?=$product['id']?>">More ></a>
                     </figcaption>
                 </figure>
             <?php endforeach; ?>
