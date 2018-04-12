@@ -14,7 +14,7 @@
       grid-template-columns: 1fr 2fr;
       width: 100%;
       position: relative;
-      background: radial-gradient($headerGradientInner, $headerGradientOuter);
+      background: radial-gradient(circle at 100%, $headerGradientInner, $headerGradientOuter);
       div:nth-child(1) {
         position: relative;
         @include flex(block, column, space-between, start, null);

@@ -28,12 +28,24 @@ require "incl/header.php";
   </form>
   <article class="contact__info">
     <h2>Fashion Online</h2>
-    <ul>
-      <li>address: lindholm brygge 9</li>
-      <li>zipcode: 9400 norresundby</li>
-      <li>country: denmark</li>
-      <li>phone: +45 12 34 56 78</li>
-    </ul>
+    <table>
+      <tr>
+        <td>ADDRESS:</td>
+        <td>LINDHOLM BRYGGE 9</td>
+      </tr>
+      <tr>
+        <td>ZIPCODe:</td>
+        <td>9400 NORRESUNDBY</td>
+      </tr>
+      <tr>
+        <td>COUNTRY:</td>
+        <td>DENMARK</td>
+      </tr>
+      <tr>
+        <td>PHONE</td>
+        <td>+45 12 34 56 78</td>
+      </tr>
+    </table>
   </article>
   <div>
 
