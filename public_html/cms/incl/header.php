@@ -27,6 +27,7 @@
 	<a href="/cms/index.php">Dashboard</a>
 	<?php if ($auth->auth_role == 'admin') : ?>
 		<a href="/cms/products.php">Products</a>
+		<a href="/cms/users.php">Users</a>
 	<?php elseif ($auth->auth_role == 'retailer') : ?>
 		<a href="/cms/retail_adress.php">Change address</a>
 	<?php endif; ?>

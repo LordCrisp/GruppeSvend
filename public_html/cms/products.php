@@ -23,7 +23,7 @@ switch(strtoupper($mode)) {
     JOIN collection ON product.collection_id = collection.id
     JOIN gender ON product.gender = gender.id
     WHERE deleted = 0
-    ORDER BY created_at ASC";
+    ORDER BY created_at DESC";
     $products = $db->fetch_array($sql);
 ?>
     <div class="container">
