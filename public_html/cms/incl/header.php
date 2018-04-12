@@ -25,11 +25,13 @@
 <!-- Header (start) -->
 <header>
 	<a href="/cms/index.php">Dashboard</a>
-	<?php if ($auth->auth_role == 'admin') : ?>
-		<a href="/cms/products.php">Products</a>
-	<?php elseif ($auth->auth_role == 'retailer') : ?>
-		<a href="/cms/retail_adress.php">Change address</a>
-	<?php endif; ?>
+	<?php if ($auth->auth_role == 'admin') {
+		echo "<a href='/cms/products.php'>Products</a>";
+		}
+        if ($auth->auth_role == 'retailer' || 'admin') {
+		echo "<a href='/cms/retail_address.php'>Change address</a>";
+	    }?>
+
 	<a href="?action=logout">Logout</a>
 </header>
 <!-- Header (end) -->
