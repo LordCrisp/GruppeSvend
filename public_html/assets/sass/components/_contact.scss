@@ -50,9 +50,22 @@
     table {
       tr {
         td {
+          color: rgba($dark, 0.87);
           font-family: Bebas, 'Roboto', sans-serif;
           font-weight: 400;
+          font-size: 1.2em;
+          padding-right: 1em;
         }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .contact {
+    &__form {
+      .form__group {
+        padding: 0;
+        margin: 24px 0;
       }
     }
   }
