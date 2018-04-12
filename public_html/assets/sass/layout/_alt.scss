@@ -69,6 +69,9 @@
       >:nth-child(2) {
         grid-column: 1 / 2;
       }
+      >:nth-child(3) {
+        grid-column: 2 / 3;
+      }
       >:nth-child(4) {
         background-color: white;
       }
