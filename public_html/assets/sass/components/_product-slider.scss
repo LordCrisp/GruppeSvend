@@ -3,7 +3,7 @@
     position: relative;
     margin-top: 56px;
     padding: 16px;
-    background-color: white;
+    background-color: $backgroundLight;
   }
   &__button {
     @include appearance(none);
