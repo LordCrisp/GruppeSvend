@@ -24,6 +24,11 @@
 <body class="admin__body">
 <!-- Header (start) -->
 <header>
-	<a href="/cms/products.php">products</a>
+	<?php if ($auth->auth_role == 'admin') : ?>
+		<a href="/cms/products.php">products</a>
+	<?php elseif ($auth->auth_role == 'retailer') : ?>
+		<a href="/cms/retail_adress.php">Change address</a>
+	<?php endif; ?>
+	<a href="?action=logout">Logout</a>
 </header>
 <!-- Header (end) -->

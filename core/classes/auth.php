@@ -10,7 +10,7 @@ class auth
     public $auth_user_id;
     public $login_path;
     public $logout;
-    public $userID;
+    public $auth_role;
 
     /* - CLASS CONSTANTS - */
     const ISLOGGEDIN = 1;
@@ -49,7 +49,7 @@ class auth
         }
         //Otherwise check if still logged in
         else {
-            if (!$this->check_session($require_auth)){
+            if (!$this->check_session()){
                 if ($require_auth == true) {
                     echo $this->login_form();
                     exit();
@@ -81,6 +81,7 @@ class auth
                 $sql = "INSERT INTO user_session (user_id, session_id, logged_in, last_action) 
                         VALUES (?,?,?,?)";
                 $this->db->query($sql, $params);
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
                 //User now officially logged in
             }
             //If password doesn't match
@@ -115,7 +116,7 @@ class auth
      *--------------------------CHECKUP AREA (start)------------------------*/
 
     // - CHECK IF SESSION IS STILL LOGGED IN
-    private function check_session($require_auth) {
+    private function check_session() {
         $params = array(session_id());
         $sql = "SELECT user_id, last_action 
                 FROM user_session 
@@ -124,12 +125,16 @@ class auth
 
         if ($row = $this->db->fetch_array($sql, $params)) {
             $this->auth_user_id = $row [0] ['user_id'];
+            $sql = "SELECT role.name
+            FROM user 
+            JOIN role
+            ON user.role_id = role.id
+            WHERE user.id = $this->auth_user_id";
+            $this->auth_role = $this->db->fetch_value($sql);
             return $this->auth_user_id;
         }
         else {
-            if ($require_auth == true) {
-                $this->logout();
-            }
+            $this->logout();
         }
     }
 

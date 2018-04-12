@@ -2,5 +2,6 @@
 require "incl/cms_init.php";
 
 require DOCROOT . "/cms/incl/header.php";
+?>
 
-$auth->logout();
+You are logged in as <?=$auth->auth_role?>
