@@ -1,10 +1,7 @@
 <?php
 require "incl/cms_init.php";
 ?>
-
-<!-- CHECK USER ROLE -->
 <?php if ($auth->auth_role == 'admin') : ?>
-
 <?php
 $product = new products();
 $collections = new collections();
@@ -55,11 +52,11 @@ switch(strtoupper($mode)) {
         </table>
     </div>
 <script>
-$(document).ready(function() {
-    $(".product-delete").click(function() {
-        return confirm("Vil du slette " + this.id + "?");
+    $(document).ready(function() {
+        $(".product-delete").click(function() {
+            return confirm("Vil du slette " + this.id + "?");
+        });
     });
-});
 </script>
 <?php
 break;
@@ -131,7 +128,6 @@ break;
 
     //  DELETE PRODUCT
     case "DELETE":
-    require DOCROOT . "/cms/incl/header.php";
     
     if (isset($_GET['id'])) {
         $product->delete($_GET['id']);
@@ -159,7 +155,7 @@ break;
 }
 ?>
 
-<?php else : 
-    header("Location: index.php");    
+<?php else :
+    header("Location: index.php");
 ?>
 <?php endif; ?>
