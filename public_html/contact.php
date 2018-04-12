@@ -12,7 +12,7 @@ require "incl/header.php";
     </div>
     <div></div>
   </header>
-  <form>
+  <form class="contact__form">
     <div class="form__group">
       <input type="text" name="name" id="name" placeholder="NAME" />
     </div>
@@ -20,16 +20,16 @@ require "incl/header.php";
       <input type="email" name="email" id="email" placeholder="EMAIL" />
     </div>
     <div class="form__group">
-      <textarea name="message" id="message" placeholder="MESSAGE"></textarea>
+      <textarea name="message" id="message" placeholder="MESSAGE" rows="8"></textarea>
     </div>
     <div class="form__group--submit">
       <button type="submit">SEND US THE MESSAGE</button>
     </div>
   </form>
-  <article>
+  <article class="contact__info">
     <h2>Fashion Online</h2>
     <ul>
-      <li>adress: lindholm brygge 9</li>
+      <li>address: lindholm brygge 9</li>
       <li>zipcode: 9400 norresundby</li>
       <li>country: denmark</li>
       <li>phone: +45 12 34 56 78</li>
