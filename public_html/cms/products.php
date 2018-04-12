@@ -1,6 +1,11 @@
 <?php
 require "incl/cms_init.php";
+?>
 
+<!-- CHECK USER ROLE -->
+<?php if ($auth->auth_role == 'admin') : ?>
+
+<?php
 $product = new products();
 $collections = new collections();
 $categories = new categories();
@@ -134,3 +139,9 @@ break;
 
     header("Location: products.php");
 }
+?>
+
+<?php else : 
+    header("Location: index.php");    
+?>
+<?php endif; ?>
