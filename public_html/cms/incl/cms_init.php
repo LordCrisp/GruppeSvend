@@ -4,9 +4,11 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 /* - DEFINE DOCUMENT ROOT - */
-define("DOCROOT", filter_input(INPUT_SERVER, "DOCUMENT_ROOT", FILTER_SANITIZE_STRING));
+define("DOCROOT", filter_input(INPUT_SERVER, "DOCUMENT_ROOT", FILTER_SANITIZE_STRING) . "/");
+
 /* - DEFINE CORE ROOT - */
 define("COREPATH", substr(DOCROOT, 0, strrpos(DOCROOT, "/", -2)) . "/core/");
+
 /* - CLASS AUTOLOADER - */
 require_once COREPATH . 'classes/auto_loader.php';
 /* - INITIALIZE DATABASE - */
@@ -17,4 +19,3 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     $auth->logout();
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
-echo $auth->auth_role;

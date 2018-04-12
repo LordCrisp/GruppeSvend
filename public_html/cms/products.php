@@ -1,14 +1,13 @@
 <?php
 require "incl/cms_init.php";
 ?>
-
-<!-- CHECK USER ROLE -->
 <?php if ($auth->auth_role == 'admin') : ?>
-
 <?php
 $product = new products();
 $collections = new collections();
+$collection = new collections();
 $categories = new categories();
+$category = new categories();
 
 $mode = isset($_REQUEST["mode"]) && !empty($_REQUEST["mode"]) ? $_REQUEST["mode"] : "";
 
@@ -18,11 +17,13 @@ switch(strtoupper($mode)) {
     default:
     case "LIST":
     require DOCROOT . "/cms/incl/header.php";
-    $sql = "SELECT product.id, product.name AS productName, product.category_id, product.collection_id, product.gender, product.created_at, product.deleted, category.name AS categoryName
+    $sql = "SELECT collection.name AS collectionName, gender.gender, gender.id, product.id, product.name AS productName, product.category_id, product.collection_id, product.gender, product.created_at, product.deleted, category.name AS categoryName
     FROM product
     JOIN category ON product.category_id = category.id
+    JOIN collection ON product.collection_id = collection.id
+    JOIN gender ON product.gender = gender.id
     WHERE deleted = 0
-    ORDER BY created_at ASC";
+    ORDER BY created_at DESC";
     $products = $db->fetch_array($sql);
 ?>
     <div class="container card"style="padding-left:16px">
@@ -45,6 +46,8 @@ switch(strtoupper($mode)) {
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Category</th>
+                <th scope="col">Collection</th>
+                <th scope="col">Gender</th>
             </thead>
             <?php foreach ($products as $product) : ?>
                 <tbody>
@@ -61,11 +64,11 @@ switch(strtoupper($mode)) {
         </table>
     </>
 <script>
-$(document).ready(function() {
-    $(".product-delete").click(function() {
-        return confirm("Vil du slette " + this.id + "?");
+    $(document).ready(function() {
+        $(".product-delete").click(function() {
+            return confirm("Vil du slette " + this.id + "?");
+        });
     });
-});
 </script>
 <?php
 break;
@@ -80,7 +83,11 @@ break;
 	$categories = $categories->getCategories();
     if (isset($_GET['id'])) {
         $product->getProduct($_GET['id']);
+        $category->getCategory($product->category_id);
+        $collection->getCollection($product->collection_id);
     }
+    $collections = $collections->getCollections();
+	$categories = $categories->getCategories();
 ?>
     <div class="container card">
       <form action="?mode=save" method="POST" enctype="multipart/form-data">
@@ -129,8 +136,12 @@ break;
 
     //  DELETE PRODUCT
     case "DELETE":
+<<<<<<< HEAD
     require DOCROOT . "/cms/incl/header.php";
 
+=======
+
+>>>>>>> ac137d60a4c06a83d18f8ab24e8e1823f9186d30
     if (isset($_GET['id'])) {
         $product->delete($_GET['id']);
         header("Location: ?mode=list");
@@ -148,9 +159,9 @@ break;
     $product->gender = $_POST['gender'];
 
     if (!empty($_POST['id'])) {
-        $product->save($product->id, 'assets/img/products/');
+        $product->save($product->id, '/assets/img/products/');
     } else {
-        $product->save(0, 'assets/img/products/');
+        $product->save(0, '/assets/img/products/');
     }
 
     header("Location: products.php");
