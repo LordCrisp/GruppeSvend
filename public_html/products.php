@@ -37,47 +37,53 @@ require DOCROOT . "/incl/sidebar.php";
 break;
 
     case "MEN": ?>
-
-    <section>
-        <div class="product-list">
-            <?php foreach ($productsMen as $product) : ?>
-                <figure class="product-list__item">
-                    <img class="product-list__image" src='/assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
-                    <figcaption class="product-list__caption">
-                        <?=$product['name']?> <br>
-                        <a href="?mode=categories&collection=<?=$product['id']?>">More ></a>
-                    </figcaption>
-                </figure>
-            <?php endforeach; ?>
-        </div>
-    </section>
+    <main>
+        <section>
+            <div class="product-list">
+                <?php foreach ($productsMen as $product) : ?>
+                    <figure class="product-list__item">
+                        <img class="product-list__image" src='/assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
+                        <figcaption class="product-list__caption">
+                            <?=$product['name']?> <br>
+                            <a href="?mode=categories&collection=<?=$product['id']?>">More ></a>
+                        </figcaption>
+                    </figure>
+                <?php endforeach; ?>
+            </div>
+        </section>
 
 <?php
 /* - Sidebar (start) - */
 require DOCROOT . "/incl/sidebar.php";
 /* - Sidebar (start) - */
+?>
+</main>
+<?php
 break;
 
     case "WOMEN": ?>
-
-    <section>
-        <div class="product-list">
-            <?php foreach ($productsWomen as $product) : ?>
-                <figure class="product-list__item">
-                    <img class="product-list__image" src='/assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
-                    <figcaption class="product-list__caption">
-                        <?=$product['name']?> <br>
-                        <a href="/collections.php?mode=categories&collection=<?=$product['id']?>">More ></a>
-                    </figcaption>
-                </figure>
-            <?php endforeach; ?>
-        </div>
-    </section>
+    <main>
+        <section>
+            <div class="product-list">
+                <?php foreach ($productsWomen as $product) : ?>
+                    <figure class="product-list__item">
+                        <img class="product-list__image" src='/assets/img/products/<?=$product['thumbnail']?>' alt='Picture of <?=$product['name']?>'>
+                        <figcaption class="product-list__caption">
+                            <?=$product['name']?> <br>
+                            <a href="/collections.php?mode=categories&collection=<?=$product['id']?>">More ></a>
+                        </figcaption>
+                    </figure>
+                <?php endforeach; ?>
+            </div>
+        </section>
 
 <?php
 /* - Sidebar (start) - */
 require DOCROOT . "/incl/sidebar.php";
 /* - Sidebar (start) - */
+?>
+</main>
+<?php
 break;
 }
 ?>

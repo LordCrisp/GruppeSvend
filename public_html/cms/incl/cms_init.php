@@ -17,3 +17,4 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     $auth->logout();
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
+echo $auth->auth_role;

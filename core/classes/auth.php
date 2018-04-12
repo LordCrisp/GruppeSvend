@@ -125,7 +125,11 @@ class auth
 
         if ($row = $this->db->fetch_array($sql, $params)) {
             $this->auth_user_id = $row [0] ['user_id'];
-            $sql = "SELECT role_id FROM user WHERE id = $this->auth_user_id";
+            $sql = "SELECT role.name
+            FROM user 
+            JOIN role
+            ON user.role_id = role.id
+            WHERE user.id = $this->auth_user_id";
             $this->auth_role = $this->db->fetch_value($sql);
             return $this->auth_user_id;
         }

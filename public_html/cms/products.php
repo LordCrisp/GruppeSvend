@@ -3,7 +3,7 @@ require "incl/cms_init.php";
 ?>
 
 <!-- CHECK USER ROLE -->
-<?php if ($auth->auth_role == 1) : ?>
+<?php if ($auth->auth_role == 'admin') : ?>
 
 <?php
 $product = new products();
