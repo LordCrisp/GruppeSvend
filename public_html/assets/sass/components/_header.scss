@@ -162,6 +162,16 @@
       }
     }
   }
+  .admin {
+    top: 0;
+    background-color: rgba($background, 0.1);
+    li {
+      a {
+        color: $background;
+        font-weight: 500;
+      }
+    }
+  }
   &.active {
     animation: menu-open 400ms curve() forwards;
   }
@@ -249,6 +259,9 @@
           width: unset;
         }
       }
+    }
+    .admin {
+      background-color: transparent;
     }
   }
 }
