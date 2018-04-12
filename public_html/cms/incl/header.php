@@ -34,6 +34,7 @@
 		<li><a href="index.php"><i class="material-icons">home</i><span>Home</span></a></li>
 	<?php if ($auth->auth_role == 'admin') : ?>
 		<li><a href="/cms/products.php"><i class="material-icons">shopping_basket</i><span>Products</span></a></li>
+		<li><a href="/cms/users.php"><i class="material-icons">shopping_basket</i><span>Users</span></a></li>
 	<?php elseif ($auth->auto_role == 'retailer') : ?>
 		<li><a href="/cms/retail_adress.php"><i class="material-icons">pin_drop</i><span>Change address</span></a></li>
 	<?php endif; ?>
@@ -44,11 +45,4 @@
 </nav>
 <header class="header__top--fixed header--style-primary" id="appBar">
 </header>
-
-	<!-- <?php if ($auth->auth_role == 'admin') : ?>
-		<a href="/cms/products.php">products</a>
-	<?php elseif ($auth->auth_role == 'retailer') : ?>
-		<a href="/cms/retail_adress.php">Change address</a>
-	<?php endif; ?>
-	<a href="?action=logout">Logout</a> -->
 <!-- Header (end) -->

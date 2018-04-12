@@ -136,12 +136,7 @@ break;
 
     //  DELETE PRODUCT
     case "DELETE":
-<<<<<<< HEAD
-    require DOCROOT . "/cms/incl/header.php";
 
-=======
-
->>>>>>> ac137d60a4c06a83d18f8ab24e8e1823f9186d30
     if (isset($_GET['id'])) {
         $product->delete($_GET['id']);
         header("Location: ?mode=list");
