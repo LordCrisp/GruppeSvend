@@ -13,9 +13,8 @@ require_once COREPATH . 'classes/auto_loader.php';
 $db = new db_conf();
 $auth = new auth();
 $auth->authenticate(true);
-if ($auth->auth_user_id) {
-    echo "hallo";
-} else {
-    echo "nope";
-}
-
+// if ($auth->auth_user_id) {
+//     echo "hallo";
+// } else {
+//     echo "nope";
+// }

@@ -1,10 +1,11 @@
-@import "../../assets/sass/helpers";
+@import "../../../assets/sass/helpers";
 
 //// Style:
-@import "../../assets/sass/style/colors";
-@import "../../assets/sass/style/typography";
+@import "../../../assets/sass/style/colors";
+@import "../../../assets/sass/style/typography";
 
 //// Layout:
+@import "layout/admin";
 
 //// Components:
 

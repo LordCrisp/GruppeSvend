@@ -7,7 +7,7 @@
 	<title>Admin | Fashion Online</title>
 	<!-- Custom stylesheet -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?= DOCROOT ?>cms/css/master.css">
+	<link rel="stylesheet" href="/assets/css/master.css">
 	<!-- Google fonts -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Favicon -->
@@ -21,7 +21,7 @@
 </head>
 
 <!-- Body (start) -->
-<body>
+<body class="admin__body">
 <!-- Header (start) -->
 <header>
 	<a href="/cms/products.php">products</a>
