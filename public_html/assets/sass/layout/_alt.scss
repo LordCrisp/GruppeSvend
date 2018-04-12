@@ -66,6 +66,7 @@
     &__container {
       header {
         display: grid;
+        grid-template-columns: 42% auto;
         div:nth-child(1) {
           grid-column: 1 / 2;
           width: 100%;
