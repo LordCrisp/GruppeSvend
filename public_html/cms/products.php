@@ -85,7 +85,7 @@ break;
             <input type="text" name="name" value="<?=$product->name?>">
         </div>
         <div class="form-group">
-            <label for="description">Description</label><br>
+            <label for="description">Description</label>
             <textarea name="description" rows="5" cols="40"><?=$product->description?></textarea>
         </div>
         <div class="form-group">
