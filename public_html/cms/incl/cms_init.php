@@ -13,8 +13,7 @@ require_once COREPATH . 'classes/auto_loader.php';
 $db = new db_conf();
 $auth = new auth();
 $auth->authenticate(true);
-// if ($auth->auth_user_id) {
-//     echo "hallo";
-// } else {
-//     echo "nope";
-// }
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    $auth->logout();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+}

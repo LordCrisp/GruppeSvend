@@ -25,5 +25,6 @@
 <!-- Header (start) -->
 <header>
 	<a href="/cms/products.php">products</a>
+	<a href="?action=logout">Logout</a>
 </header>
 <!-- Header (end) -->

@@ -33,7 +33,10 @@
 			<li><a href="contact.php">contact</a></li>
 		</ul>
 		<?php if ($auth->auth_user_id) : ?>
-			<ul class="admin"><li><a href="/cms/products.php">Admin</a></li></ul>
+			<ul class="admin">
+				<li><a href="/cms/products.php">Admin</a></li>
+				<li><a href="?action=logout">Logout</a></li>
+			</ul>
 		<?php else : ?>
 			<form class="header__signin-form" method="post">
 				<p>sign in</p>
