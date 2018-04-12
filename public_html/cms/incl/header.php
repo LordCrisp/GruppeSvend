@@ -5,9 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#2D2D2D" id="theme_color">
 	<title>Admin | Fashion Online</title>
+
 	<!-- Custom stylesheet -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/assets/css/master.css">
+	<link rel="stylesheet" href="https://cdn.rawgit.com/SanderSalamander/md-admin/master/css/master.css">
+	<link rel="stylesheet" href="/cms/assets/css/master.css">
 	<!-- Google fonts -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Favicon -->
@@ -21,17 +22,27 @@
 </head>
 
 <!-- Body (start) -->
-<body class="admin__body">
+<body>
 <!-- Header (start) -->
-<header>
-	<a href="/cms/index.php">Dashboard</a>
-	<?php if ($auth->auth_role == 'admin') {
-		echo "<a href='/cms/products.php'>Products</a>";
+<div id="sidebarToggle" style="display:none"></div>
+<div id="overlay" style="display: none"></div>
+<nav class="header__sidebar" id="sidebar">
+	<div class="header__title">
+		<h1 class="header__brand">CMS</h1>
+	</div>
+	<ul class="header__list">
+		<li><a href="index.php"><i class="material-icons">home</i><span>Home</span></a></li>
+		<?php if ($auth->auth_role == 'admin') {
+			echo "<a href='/cms/products.php'>Products</a>";
 		}
-        if ($auth->auth_role == 'retailer' || 'admin') {
-		echo "<a href='/cms/retail_address.php'>Change address</a>";
-	    }?>
-
-	<a href="?action=logout">Logout</a>
+		if ($auth->auth_role == 'retailer' || 'admin') {
+			echo "<a href='/cms/retail_address.php'>Change address</a>";
+		}?>
+	</ul>
+	<ul class="header__list">
+		<li><a href="?action=logout"><i class="material-icons" style="transform:rotate(180deg)">exit_to_app</i><span>Log out</span></a></li>
+	</ul>
+</nav>
+<header class="header__top--fixed header--style-primary" id="appBar">
 </header>
 <!-- Header (end) -->

@@ -43,4 +43,26 @@ a {
 body {
   width: 100% !important;
   margin: 0 !important;
+  padding-left: 356px;
+}
+
+.container {
+  width: 768px;
+  margin: auto;
+}
+
+.header__sidebar {
+  box-shadow: 1px 0 4px 0 rgba(0,0,0,0.23);
+}
+
+.table__header {
+  .header__list--right {
+    li {
+      a {
+        i {
+          color: rgba(black, 0.87);
+        }
+      }
+    }
+  }
 }
