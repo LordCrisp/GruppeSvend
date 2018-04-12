@@ -46,12 +46,29 @@ require "incl/header.php";
         <td>+45 12 34 56 78</td>
       </tr>
     </table>
-    <div class="contact__gmaps"></div>
+    <div class="contact__gmaps" id="map"></div>
   </article>
   <div>
 
   </div>
 </main>
+
+
+
+<script>
+  function initMap() {
+    var fashionOnline = {lat: 57.066650, lng: 9.899123};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 14,
+      center: fashionOnline
+    });
+    var marker = new google.maps.Marker({
+      position: fashionOnline,
+      map: map
+    });
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwIBTXY2ceAEQoQ4yCB84d13X_JaNDX6g&callback=initMap"></script>
 
 <?php
 require "incl/footer.php";

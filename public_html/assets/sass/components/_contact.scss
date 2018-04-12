@@ -60,6 +60,13 @@
       }
     }
   }
+  &__gmaps {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 300px;
+    margin: 16px 0;
+  }
 }
 @media only screen and (min-width: 1200px) {
   .contact {
@@ -74,6 +81,9 @@
       h2 {
         margin: 28px 0;
       }
+    }
+    &__gmaps {
+      margin: 24px 0;
     }
   }
 }
