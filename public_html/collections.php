@@ -164,7 +164,7 @@ switch ( strtoupper( $mode ) ) {
                 </div>
                 <!-- Sections -->
                 <div class="product__alt-sections">
-                    <div class="product__alt-description">
+                    <div class="product__alt-description active">
                         <p><?= $products->description ?></p>
                     </div>
                     <div class="product__alt-review">
@@ -196,8 +196,13 @@ switch ( strtoupper( $mode ) ) {
             var target = elem.dataset.fetch;
             //Create variable (array) of the class to target, from the data attribute content
             var targetElem = document.getElementsByClassName('product__alt-' + target);
-            //Create variable (array) of all the siblings og the target class
+
+            /*----------------------------------------------------------------
+            ---- Fetch Target siblings and remove "active" class from them ---
+            ----------------------------------------------------------------*/
+            //Create variable (array) of all the siblings of the target class
             var targetSiblings = targetElem[0].parentNode.childNodes;
+
             //Loop through siblings and remove "active" class from current active
             for (var z = 0; z < targetSiblings.length; z++) {
                 //Fetch list of classes on element
@@ -206,14 +211,36 @@ switch ( strtoupper( $mode ) ) {
                     if (targetSiblings[z].classList.contains('active')) {
                         targetSiblings[z].classList.remove('active');
                     }
-                    if (elem.classList.contains('active')) {
-                        elem.classList.remove('active');
+                }
+            }
+            /*----------------------------------------------------------------
+            ----------- Fetch trigger element (button) siblings and ----------
+            ----------------- remove "active" class from them ----------------
+            ----------------------------------------------------------------*/
+            //Create variable (array) of all the siblings of the button
+            var elemSiblings = elem.parentNode.childNodes;
+
+            //Loop through siblings and remove "active" class from current active
+            for (var z = 0; z < elemSiblings.length; z++) {
+                //Fetch list of classes on element
+                if (elemSiblings[z].classList) {
+                    //If button contains "active" class, remove it
+                    if (elemSiblings[z].classList.contains('active')) {
+                        elemSiblings[z].classList.remove('active');
                     }
                 }
             }
+
+            /*----------------------------------------------------------------
+            -- Set "active" class on trigger and target elements if missing --
+            ----------------------------------------------------------------*/
             //If target element don't contain "active" class, give it "active" class
             if (!targetElem[0].classList.contains('active')) {
                 targetElem[0].classList.add('active');
+            }
+            //If button element don't contain "active" class, give it "active" class
+            if (!elem.classList.contains('active')) {
+                elem.classList.add('active');
             }
 
         }
