@@ -28,8 +28,8 @@
 	<div class="header__row" id="secondMenu">
 		<button type="button" class="header__button" data-menu-close="secondMenu"><i class="material-icons">close</i></button>
 		<ul>
-			<li><a href="">find retailer</a></li>
-			<li><a href="">news</a></li>
+			<li><a href="retailers.php">find retailer</a></li>
+			<li><a href="news.php">news</a></li>
 			<li><a href="contact.php">contact</a></li>
 		</ul>
 		<form class="header__signin-form" action="" method="post">

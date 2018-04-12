@@ -33,7 +33,7 @@
     bottom: -64px;
     left: 12px;
     width: calc(100% - 24px) !important;
-    @include border-radius(16px);
+    @include border-radius(4px);
     max-height: 90vh;
     overflow-y: scroll;
     font-family: 'Roboto', sans-serif;
@@ -42,7 +42,7 @@
       ul {
         position: relative;
         width: 100%;
-        @include border-radius(16px);
+        @include border-radius(4px);
         margin: 8px 0;
         background-color: $background;
         box-shadow: 0 4px 20px 0 rgba($dark, 0.4);

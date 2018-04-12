@@ -94,54 +94,76 @@ class products {
         return $this->db->query($sql);
     }
     public function save($id, $fileDestination){
-                if (!empty($_FILES['file'])) {
-                $file = $_FILES['file'];
+            
+        $file = $_FILES['file'];
 
-                    $fileName = $file['name'];
-                    $fileTmpName = $file['tmp_name'];
-                    $fileSize = $file['size'];
-                    $fileError = $file['error'];
-                    $fileType = $file['type'];
+        $fileName = $file['name'];
+        $fileTmpName = $file['tmp_name'];
+        $fileSize = $file['size'];
+        $fileError = $file['error'];
+        $fileType = $file['type'];
 
-                    $fileExt = explode('.', $fileName);
-                    $fileActualExt = strtolower(end($fileExt));
+        $fileExt = explode('.', $fileName);
+        $fileActualExt = strtolower(end($fileExt));
 
-                    $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-                    $fileDestinationWithName = $fileDestination . $fileNameNew;
+        $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+        $fileDestinationWithName = $fileDestination . $fileNameNew;
 
-                    $allowed = array('jpg', 'png', 'gif', 'jpeg');
+        $allowed = array('jpg', 'png', 'gif', 'jpeg');
 
-                    if (in_array($fileActualExt, $allowed)) {
-                        //Checks for errors
-                        if ($fileError === 0) {
+        // If file not empty
+        if(file_exists($_FILES['file']['tmp_name'])) {
+            if (in_array($fileActualExt, $allowed)) {
+                //Checks for errors
+                if ($fileError === 0) {
 
-                            //Move raw file
-                            move_uploaded_file($fileTmpName, DOCROOT . $fileDestinationWithName);
+                    //Move raw file
+                    move_uploaded_file($fileTmpName, DOCROOT . $fileDestinationWithName);
 
-                            $params = array(
-                                $this->name,
-                                $this->description,
-                                $this->collection,
-                                $this->category,
-                                $this->gender,
-                                $fileNameNew
-                            );
+                    $params = array(
+                        $this->name,
+                        $this->description,
+                        $this->collection,
+                        $this->category,
+                        $this->gender,
+                        $fileNameNew
+                    );
 
-                            $sql = "INSERT INTO product(name, description, collection_id, category_id, gender, thumbnail) VALUES (?,?,?,?,?,?)";
-
-                            $this->db->query($sql, $params);
-
-                            /* Return new id */
-                            return $this->db->getinsertid();
-
-                            header('Location:' . DOCROOT . 'cms/products.php');
-
-                            } else {
-                                echo "Fejl i uploading af fil: " . $_FILES["file"]["error"];
-                            }
-                        } else {
-                        echo "Du kan ikke uploade denne type filer";
-                        }
+                    if ($id > 1) {
+                        $sql = "UPDATE product SET name = ?, description = ?, collection_id = ?, category_id = ?, gender = ?, thumbnail = ? WHERE id = $id";
+                    } else {
+                        $sql = "INSERT INTO product(name, description, collection_id, category_id, gender, thumbnail) VALUES (?,?,?,?,?,?)";
                     }
+                    $this->db->query($sql, $params);
+
+                    /* Return new id */
+                    return $this->db->getinsertid();
+
+                } else {
+                    echo "Fejl i uploading af fil: " . $_FILES["file"]["error"];
+                }
+            } else {
+                echo "Du kan ikke uploade denne type filer";
             }
+        } else {
+            // If file is empty
+            $params = array(
+                $this->name,
+                $this->description,
+                $this->collection,
+                $this->category,
+                $this->gender,
+            );
+
+            if ($id > 1) {
+                $sql = "UPDATE product SET name = ?, description = ?, collection_id = ?, category_id = ?, gender = ? WHERE id = $id";
+            } else {
+                $sql = "INSERT INTO product(name, description, collection_id, category_id, gender) VALUES (?,?,?,?,?)";
+            }
+            $this->db->query($sql, $params);
+
+            /* Return new id */
+            return $this->db->getinsertid();
         }
+    }
+}

@@ -1,7 +1,89 @@
 .contact {
   &__form {
+    .form__group {
+      position: relative;
+      width: 100%;
+      padding: 0 16px;
+      margin: 16px 0;
+      &--submit {
+        @extend .form__group;
+        @include flex(block, row, end, center, null);
+      }
+      input, textarea, button {
+        @include appearance(none);
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 12px 8px 8px 8px;
+        border: none;
+        background-color: rgba($light, 0.4);
+        color: $dark;
+        font-weight: 500;
+        &::placeholder {
+          font-family: Bebas, 'Roboto', sans-serif;
+          font-weight: 400;
+          color: rgba($dark, 0.6);
+        }
+      }
+      textarea {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        resize: none;
+      }
+      button {
+        cursor: pointer;
+        width: unset;
+        padding-right: 16px;
+        padding-left:  16px;
+        font-family: Bebas, 'Roboto', sans-serif;
+        font-weight: 400;
+        word-spacing: 0.2em;
+      }
+    }
   }
   &__info {
-    // TODO: contact info.
+    position: relative;
+    padding: 16px;
+    h2 {
+
+    }
+    table {
+      word-spacing: 0.4em;
+      tr {
+        td {
+          color: rgba($dark, 0.87);
+          font-family: Bebas, 'Roboto', sans-serif;
+          font-weight: 400;
+          font-size: 1.2em;
+          padding-right: 1em;
+        }
+      }
+    }
+  }
+  &__gmaps {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 300px;
+    margin: 16px 0;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .contact {
+    &__form {
+      .form__group {
+        padding: 0;
+        margin: 24px 0;
+      }
+    }
+    &__info {
+      padding: 0;
+      h2 {
+        margin: 28px 0;
+      }
+    }
+    &__gmaps {
+      margin: 24px 0;
+    }
   }
 }
