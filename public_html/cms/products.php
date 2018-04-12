@@ -150,9 +150,9 @@ break;
     $product->gender = $_POST['gender'];
     
     if (!empty($_POST['id'])) {
-        $product->save($product->id, 'assets/img/products/');
+        $product->save($product->id, '/assets/img/products/');
     } else {
-        $product->save(0, 'assets/img/products/');
+        $product->save(0, '/assets/img/products/');
     }
 
     header("Location: products.php");
