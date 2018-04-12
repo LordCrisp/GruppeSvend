@@ -11,3 +11,5 @@ define("COREPATH", substr(DOCROOT, 0, strrpos(DOCROOT, "/")) . "/core/");
 require_once COREPATH . 'classes/auto_loader.php';
 /* - INITIALIZE DATABASE - */
 $db = new db_conf();
+$auth = new auth();
+$auth->authenticate(false);

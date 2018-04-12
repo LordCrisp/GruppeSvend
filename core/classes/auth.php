@@ -10,6 +10,7 @@ class auth
     public $auth_user_id;
     public $login_path;
     public $logout;
+    public $userID;
 
     /* - CLASS CONSTANTS - */
     const ISLOGGEDIN = 1;
@@ -30,14 +31,14 @@ class auth
         $this->auth_user_name = filter_input(INPUT_POST, "login_user_name", FILTER_SANITIZE_STRING);
         $this->auth_password = filter_input(INPUT_POST, "login_password", FILTER_SANITIZE_STRING);
         $this->logout = filter_input(INPUT_GET, "logout", FILTER_SANITIZE_STRING);
-        $this->login_path = DOCROOT . "cms/incl/login.php";
+        $this->login_path = DOCROOT . "/cms/incl/login.php";
         //Unset POST login variables
         unset($_POST['login_user_name']);
         unset($_POST['login_password']);
     }
 
     // - START LOGIN & AUTHENTICATE SESSION
-    public function authenticate() {
+    public function authenticate($require_auth) {
         //If username and password is set in POST, start Login method
         if ($this->logout) {
             $this->logout();
@@ -48,9 +49,11 @@ class auth
         }
         //Otherwise check if still logged in
         else {
-            if (!$this->check_session()){
-                echo $this->login_form();
-                exit();
+            if (!$this->check_session($require_auth)){
+                if ($require_auth == true) {
+                    echo $this->login_form();
+                    exit();
+                }
             }
         }
     }
@@ -94,7 +97,7 @@ class auth
     }
 
     // - LOGOUT
-    private function logout() {
+    public function logout() {
         $params = array(session_id());
         $sql = "UPDATE user_session
                 SET logged_in = 0
@@ -112,7 +115,7 @@ class auth
      *--------------------------CHECKUP AREA (start)------------------------*/
 
     // - CHECK IF SESSION IS STILL LOGGED IN
-    private function check_session() {
+    private function check_session($require_auth) {
         $params = array(session_id());
         $sql = "SELECT user_id, last_action 
                 FROM user_session 
@@ -124,7 +127,9 @@ class auth
             return $this->auth_user_id;
         }
         else {
-            $this->logout();
+            if ($require_auth == true) {
+                $this->logout();
+            }
         }
     }
 
